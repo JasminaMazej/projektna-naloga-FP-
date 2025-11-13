@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts}
+\usepackage{enumitem}
+\usepackage{mathabx}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}
+
+\title{Metrične dimenzije usmerjenih grafov}
+\author{Jasmina Mazej in Lana Stojčić}
+
+\begin{document}
+\maketitle
+
+\section{Uvod}
+V tej nalogi, si bova pomagali s spodaj navedenimi definicijami. Na podlagi teh definicij, sva oblikovali
+razmislek, kako se bova lotili reševanja nalog.
+
+\section{Definicije in osnovni pojmi}
+
+Naj bo $G = (V, E)$ usmerjen graf, kjer je $V$ množica vseh vozlišč in $E$ množica vseh usmerjenih povezav v grafu.
+Privzeli bomo, da je v vseh definicijah graf usmerjen.
+
+\begin{definicija}
+    Če obstaja direktna povezava iz vozlišča $u$ v $v$, potem je to najkrajša povezava med vozliščima.
+    Označimo jo z $d(u, v)$. Če taka povezava obstaja, pravimo da je $v$ dosegljiv iz $u$.
+    Če taka pot ne obstaja, označimo $d(u, v) = \infty$ in $v$ ni dosegljiv iz $u$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bodo $s, x, y \in V$. Pravimo, da vozlišče $s$ razreši par vozlišč $x, y\in V$, če sta $x$ in $y$ obe dosegljiv
+    iz $s$, vendar pri različnih razdaljah. Torej velja:
+    \[d(s, x) \neq d(s, y).\]
+    Množica vozlišč $S$ razreši usmerjen graf $G$, če za vsak par $x, y\in V$ obstaja vsaj eno vozlišče $s\in S$,
+    ki razreši $x$ in $y$. Najmanjša možna velikost množice $S$ se imenuje metrična dimenzija grafa G.
+\end{definicija}
+
+\begin{definicija}
+    Usmerjene cirkulantne grafe označimo kot $C(n, d)$, kjer je $n$ število vozlišč v grafu, $d$ pa seznam generatorjev.
+    Označimo jih lahko tudi kot $C_n(1,\dots , d)$. Njihova vozlišča so postavljena v krog, povezave pa si sledijo v periodičnem
+    vzorcu. Vozlišča v tem grafu bomo označevali kot ${v_0, v_1, \dots, v_{n-1}}$. Vsako vozlišče je povezano z določenim drugim po fiksnem
+    vzorcu, ki ga določijo generatorji. Torej množico povezav zapišemo kot: 
+    \[E = \{(v_i, v_{i + k \text{  mod n}}); \text{  }1 \leq k \leq d\}\text{   za } i = \{0, 1, \dots, n-1\}.\]
+\end{definicija}
+
+\section{Postopek reševanja}
+\subsection{Naloga 1}
+Vemo, da je $dim(C_n(1, \dots, k)) = k$ za $n > 2(k-1)^2$. Zanima nas, ali za $k \geq 3$ obstaja $f(k) < 2(k-1)^2$,
+da še vedno velja $dim(C_n(1, \dots, k)) = k$ pri pogoju $n > f(k)$.\\
+
+Problema se bova lotili eksprimentalno na sledeč način:
+\begin{itemize}
+    \item Vzeli bova funkcijo za izračun metrične dimenzije cirkulantnih grafov od Maše Popovič in preverili njeno delovanje. 
+    V primeru pravilnega delovanja, jo bova nadalje uporabljali v svoji nalogi.
+    \item Izbrali bova čim več različnih vrednost za $n$ in  $k \geq 3$.
+    \item Izbrali bova različne funkcije za $f(k)$.
+\end{itemize}
+Osredotočili se bova na poljubno izbrane vrednosti za $n \geq 4$ in $k \geq 3$. Ne splača se jemati $n < 4$, saj
+imamo manj vozlišč kot povezav.
+Za izbiro $f(k)$, pa si bova izbrali poljubno manjšo kvadratno funkcijo, in opazovali, kaj se dogaja z vrednostmi. Ogledali si bova tudi, kaj se 
+zgodi, če za $f(k)$ vzamemo linearno funkcijo.\\
+
+
+\subsection{Naloga 2}
+Vemo:
+\begin{itemize}
+    \item $dim(C_n(1, 2, \ldots, n-1)) \geq n-1 \quad n \geq 3$
+    \item $dim(C_n(1, 2, \ldots, n-2)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 4$
+    \item $dim(C_n(1, 2, \ldots, n-3)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 5$
+\end{itemize}
+
+Za $n \geq 7$ imamo $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.
+To pomeni, da bo dimenzija enaka navzgor zaokroženmu celemu številu (npr. $4,4$ bo enaka 5).
+
+
+Raziskali bova, ali obstajajo podobni rezultati za $dim(C_n(1,\dots, n - k))$ za $k \geq 5$.
+Opazimo, da mora biti $n > 5$, saj smo predpostavili,
+da število generatorjev ne more biti negativno. Torej moramo za vsak $k$ izbrati dovolj velik $n$.
+
+
+Za poljubno izbrane $k$, bova izračunali metrično dimenzijo pri različnih vrednostih $n$. Opazovali bova, kaj se dogaja
+z metrično dimenzijo in tako podatke shranjevali. Najin cilj je poiskati oceno za metrično dimenzijo pri fiksnih $k$
+za različne vrednosti $n$.
+
+\end{document}
