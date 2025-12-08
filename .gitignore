@@ -1,0 +1,90 @@
+# =============================
+# LaTeX
+# =============================
+*.aux
+*.bbl
+*.blg
+*.brf
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.nav
+*.snm
+
+# PDF-ji (če jih ne želiš verzionirati)
+*.pdf
+
+# =============================
+# Python / Sage
+# =============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+*.sage.py
+
+# =============================
+# Conda / virtualna okolja
+# =============================
+env/
+venv/
+.venv/
+conda-env/
+
+# =============================
+# VS Code
+# =============================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =============================
+# WSL / Linux cache
+# =============================
+.cache/
+.tmp/
+.Trash-*/
+
+# =============================
+# Windows
+# =============================
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================
+# Arhivi
+# =============================
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# =============================
+# Dnevniški in začasni fajli
+# =============================
+*.tmp
+*.swp
+*.swo
+*~
+
+# =============================
+# SageMath dodatki
+# =============================
+.sage/
+.sage-temp/
+
+# =============================
+# Git
+# =============================
+*.orig
+*.rej
