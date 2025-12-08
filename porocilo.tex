@@ -22,8 +22,107 @@
 \begin{document}
 \maketitle
 
-\newpage
-\section{Uvod}
+\section*{Opis problema}
+
+\begin{itemize}
+    \item Napisati celoštevilski linearni program za izračun metrične dimenzije usmerjenih grafov.
+    \item Opazovati obnašanje metrične dimenzije usmerjenih cirkulantnih grafov $C(n, d)$ za različne vrednosti $n$ in $k$.
+    \item Za mnoge majhne vrednosti $n$ in $k$ eksprimentalno določiti metrično dimenzijo grafov $C(n, d)$.
+    \item Za mnoge vrednosti $n$ in $k$ izračunati metrično dimenzijo in poskusiti dokazati dane trditve.
+\end{itemize}
+
+\section*{Definicije}
+
+Naj bo $G = (V, E)$ usmerjen graf, kjer je $V$ množica vseh vozlišč in $E$ množica vseh usmerjenih povezav v grafu.
+Privzeli bomo, da je v vseh definicijah graf usmerjen.
+
+\begin{definicija}
+    Če obstaja direktna povezava iz vozlišča $u$ v $v$, potem je to najkrajša povezava med vozliščima.
+    Označimo jo z $d(u, v)$. Če taka povezava obstaja, pravimo da je $v$ dosegljiv iz $u$.
+    Če taka pot ne obstaja, označimo $d(u, v) = \infty$ in $v$ ni dosegljiv iz $u$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bodo $s, x, y \in V$. Pravimo, da vozlišče $s$ razreši par vozlišč $x, y\in V$, če sta $x$ in $y$ obe dosegljiv
+    iz $s$, vendar pri različnih razdaljah. Torej velja:
+    \[d(s, x) \neq d(s, y).\]
+    Množica vozlišč $S$ razreši usmerjen graf $G$, če za vsak par $x, y\in V$ obstaja vsaj eno vozlišče $s\in S$,
+    ki razreši $x$ in $y$. Najmanjša možna velikost množice $S$ se imenuje metrična dimenzija grafa G.
+\end{definicija}
+
+\begin{definicija}
+    Usmerjene cirkulantne grafe označimo kot $C(n, d)$, kjer je $n$ število vozlišč v grafu, $d$ pa seznam generatorjev.
+    Označimo jih lahko tudi kot $C_n(1,\dots , d)$. Njihova vozlišča so postavljena v krog, povezave pa si sledijo v periodičnem
+    vzorcu. Vozlišča v tem grafu bomo označevali kot ${v_0, v_1, \dots, v_{n-1}}$. Vsako vozlišče je povezano z določenim drugim po fiksnem
+    vzorcu, ki ga določijo generatorji. Torej množico povezav zapišemo kot: 
+    \[E = \{(v_i, v_{i + k \text{  mod n}}); \text{  }1 \leq k \leq d\}\text{   za } i = \{0, 1, \dots, n-1\}.\]
+\end{definicija}
+
+\section*{Celoštevilski linearni program}
+
+\begin{verbatim}
+def metricna_dimenzija_usmerjenega_grafa(graf):
+    
+    if not isinstance(graf, DiGraph):
+        return "Napaka: Podani graf ni usmerjen graf."
+    
+    # vozlišča grafa
+    V = graf.vertices()
+    
+    # Izračun razdalj med vsemi pari vozlišč
+    razdalje = {u: {v: graf.distance(u, v) for v in V} for u in V}
+    
+    # linearni program
+    lp = MixedIntegerLinearProgram(maximization=False)
+    x = lp.new_variable(binary=True)  # Ustvarjanje binarnih spremenljivk za vsako vozlišče
+    
+    # Cilj: minimizirati vsoto vseh x[v]
+    lp.set_objective(sum(x[v] for v in V))
+    
+    # Preverjanje, ali graf izpolnjuje pogoje
+    for u in V:
+        for v in V:
+            if u != v:
+                vozlisca = [
+                    w for w in V
+                    if razdalje[w][u] != razdalje[w][v] and
+                    razdalje[w][u] < infinity and
+                    razdalje[w][v] < infinity
+                ]
+                
+                # Če za par u, v ne obstaja ustrezno w, ne moremo izračunati metrične dimenzije
+                if not vozlisca:
+                    return f"Metrične dimenzije ni mogoče določiti: za par vozlišč ({u}, {v}) ne obstaja ustrezno vozlišče."
+                
+                # Dodamo omejitev, če obstajajo ustrezna vozlišča w
+                lp.add_constraint(sum(x[w] for w in vozlisca) >= 1)
+    
+    # Rešitev linearnega programa
+    lp.solve()
+    
+    # Pridobimo rezultate
+    razresljiva_mnozica = [v for v in V if lp.get_values(x[v]) == 1]
+    return razresljiva_mnozica, len(razresljiva_mnozica)
+
+
+def clockwise_circulant_graph(n, d):
+    odmiki = list(range(1, d + 1)) 
+    G = digraphs.Circulant(n, odmiki)
+    #plot = G.plot(layout="circular", vertex_size=300, vertex_color="skyblue", edge_color="black", 
+                  #vertex_labels=True)
+    #plot.show() #zanima naju samo dimenzija, zato sva odstranili del, ki nariše graf
+    return G
+\end{verbatim}
+
+\section*{Opis programa}
+
+\begin{enumerate}
+    \item Preverjanje, ali je graf usmerjen.
+    \item Izračun vseh razdalj med vozlišči.
+    \item Postavitev celoštevilske optimizacije.
+    \item Dodajanje omejitev za vsak par vozlišč.
+    \item Reševanje ILP in izpis rezultata.
+\end{enumerate}
 
 
 \end{document}
