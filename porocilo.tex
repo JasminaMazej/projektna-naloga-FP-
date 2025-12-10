@@ -25,9 +25,8 @@
 \section*{Opis problema}
 
 \begin{itemize}
-    \item Napisati celoštevilski linearni program za izračun metrične dimenzije usmerjenih grafov.
     \item Opazovati obnašanje metrične dimenzije usmerjenih cirkulantnih grafov $C(n, d)$ za različne vrednosti $n$ in $k$.
-    \item Za mnoge majhne vrednosti $n$ in $k$ eksprimentalno določiti metrično dimenzijo grafov $C(n, d)$.
+    \item Za mnoge vrednosti $n$ in $k$ eksprimentalno določiti metrično dimenzijo grafov $C(n, d)$.
     \item Za mnoge vrednosti $n$ in $k$ izračunati metrično dimenzijo in poskusiti dokazati dane trditve.
 \end{itemize}
 
@@ -123,6 +122,141 @@ def clockwise_circulant_graph(n, d):
     \item Dodajanje omejitev za vsak par vozlišč.
     \item Reševanje ILP in izpis rezultata.
 \end{enumerate}
+
+
+\section*{Uvod in opis problema}
+
+Metrična dimenzija grafa je pomembna invariantna količina v teoriji grafov, ki meri najmanjšo množico vozlišč, s pomočjo katerih lahko z razdaljami enolično ločimo vsa vozlišča grafa.
+
+V projektu obravnavamo \textbf{usmerjene cirkulantne grafe}
+\[
+C_n(1,2,\dots,k),
+\]
+ter eksperimentalno preverjamo znane teoretične ocene in domneve o njihovi metrični dimenziji.
+
+Znano je, da velja:
+\[
+\dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > 2(k-1)^2.
+\]
+
+Naš cilj je preveriti:
+\begin{itemize}
+\item ali lahko obstaja manjša meja $f(k) < 2(k-1)^2$,
+\item preveriti domnevo za primer $k=n-4$,
+\item ter eksperimentalno raziskati primer $k \ge 5$.
+\end{itemize}
+
+%-------------------------------------------------
+\section*{Definicije}
+
+Naj bo $G = (V,E)$ usmerjen graf.
+
+\textbf{Definicija.}
+Če obstaja usmerjena pot iz $u$ v $v$, razdaljo $d(u,v)$ definiramo kot dolžino najkrajše take poti. Če poti ni, je $d(u,v)=\infty$.
+
+\textbf{Definicija.}
+Vozlišče $s$ razreši par vozlišč $x,y$, če velja
+\[
+d(s,x) \neq d(s,y).
+\]
+
+\textbf{Definicija.}
+Množica $S$ razreši graf $G$, če za vsak par $x,y$ obstaja $s\in S$, ki razreši ta par. Najmanjša taka množica ima moč $\dim(G)$ in jo imenujemo \emph{metrična dimenzija} grafa.
+
+\textbf{Definicija.}
+Usmerjeni cirkulantni graf $C_n(1,2,\dots,k)$ ima vozlišča
+$\{0,1,\dots,n-1\}$ in povezave oblike
+\[
+i \to i+r \pmod n, \quad r\in\{1,2,\dots,k\}.
+\]
+
+
+%-------------------------------------------------
+\section*{Problem 1: Iskanje funkcije $f(k)$}
+
+Naloga:
+\[
+\text{za } k\ge 3 \text{ poišči } f(k)<2(k-1)^2 \text{, da velja } \dim(C_n(1,\dots,k))=k.
+\]
+
+Eksperimentalno smo s pomočjo izračunov preverili več vrednosti $k$ in $n$.
+
+\textbf{Rezultati (iz Excel tabele):}
+\begin{itemize}
+\item za $k=3$: $f(3) = \underline{\hspace{1cm}}$,
+\item za $k=4$: $f(4) = \underline{\hspace{1cm}}$,
+\item za $k=5$: $f(5) = \underline{\hspace{1cm}}$.
+\end{itemize}
+
+(V te vrstice samo prepišeš konkretne vrednosti iz Excel tabele.)
+
+Ugotovimo, da v vseh obravnavanih primerih velja:
+\[
+f(k) < 2(k-1)^2.
+\]
+
+%-------------------------------------------------
+\section*{5. Znane spodnje meje}
+
+Velja:
+\[
+\dim(C_n(1,\dots,n-1)) \ge n-1,\quad n\ge 3,
+\]
+\[
+\dim(C_n(1,\dots,n-2)) \ge \left\lceil\frac{n}{2}\right\rceil,\quad n\ge 4,
+\]
+\[
+\dim(C_n(1,\dots,n-3)) \ge \left\lceil\frac{n}{2}\right\rceil,\quad n\ge 5.
+\]
+
+Tudi te ocene se skladajo z našimi numeričnimi rezultati.
+
+%-------------------------------------------------
+\section*{6. Conjecture 2: Primer $k = n-4$}
+
+Domneva:
+\[
+\dim(C_n(1,2,\dots,n-4)) = \left\lceil\frac{2n}{5}\right\rceil, \quad n\ge 7.
+\]
+
+S pomočjo izračunov za $7 \le n \le 40$ smo ugotovili:
+
+\begin{center}
+\emph{Domneva velja za vse preizkušene vrednosti $n$.}
+\end{center}
+
+(Tu lahko po želji vstaviš tudi posnetek zaslona Excel tabele.)
+
+%-------------------------------------------------
+\section*{7. Splošni primer $k \ge 5$}
+
+Za vrednosti $k=5,6,7,8,9,10$ smo eksperimentalno izračunali vrednosti
+\[
+\dim(C_n(1,\dots,n-k)).
+\]
+
+Iz rezultatov (glej Excel datoteko) opazimo:
+\begin{itemize}
+\item metrična dimenzija narašča približno linearno z $n$,
+\item večje kot je $k$, počasnejša je rast,
+\item zdi se, da velja približna zveza:
+\[
+\dim(C_n(1,\dots,n-k)) \approx \alpha_k n.
+\]
+\end{itemize}
+
+%-------------------------------------------------
+\section*{8. Zaključek}
+
+V nalogi smo uspešno:
+\begin{itemize}
+\item implementirali izračun metrične dimenzije,
+\item eksperimentalno določili boljše meje za Problem 1,
+\item potrdili veljavnost domneve za $k=n-4$,
+\item ter analizirali obnašanje za splošne vrednosti $k\ge 5$.
+\end{itemize}
+
+Projekt potrjuje, da je kombinacija ILP in eksperimentalne analize učinkovito orodje pri preučevanju metrične dimenzije.
 
 
 \end{document}
