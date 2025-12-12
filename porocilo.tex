@@ -15,6 +15,7 @@
 
 \usepackage{booktabs}   % lepše črte v tabelah
 \usepackage{array}      % boljši stolpci
+\usepackage{float}     % H opcija za tabele
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}
@@ -161,49 +162,113 @@ To lahko trdive le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na t
 
 Kot zanimivost sva si ogledali še, kaj se zgodi če za $f(k)$ uzameve linearno funkcijo. Izbrali sva se $f(k) =  2(k - 1)$. 
 Že pri $k = 3$ lahko opazimo, da je pri $n = 5$ dimenizija enaka 2, kar ni enako $k$. Vidimo tudi, da pri večjih $k$ lahko najdemo tak
-$n$, da dimenzija ne bo enaka $k$. Torej linearna funkcija ne bo ustrezna izbira za $f(k)$, če želimo imeti enakost $\dim(C_n(1,2,\dots,k)) = k$.\noindent Nadalje sva eksperimentalno preverili še za $f(k) = 2(k-1)^2 - a$ , kjer je $a \in \{2, 3, 4, 5\}$. Rezultati so pokazali, da za $a \in \{2, 3\}$ dobimo pravilne vrednosti. \\
-
-\begin{table}[ht]
-    \centering
-    \caption{Dimenzije cirkulantnih grafov (4. list)}
-    \label{tab:cirkulantni_4}
-    \begin{tabular}{@{}ccccccccc@{}}
-       \toprule
-        n & 3 & 4 & 5 & 6 \\
-        \midrule
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 & 3 &  &  &  \\
-        7 & 3 &  &  &  \\
-        8 & 3 &  &  &  \\
-        14 & 3 &  &  &  \\
-        15 & 3 &  &  &  \\
-        16 & 3 & 4 &  &  \\
-        17 & 3 & 4 &  &  \\
-        21 & 3 & 4 &  &  \\
-        28 & 3 & 4 &  &  \\
-        29 & 3 & 4 &  &  \\
-        30 & 3 & 4 & 5 &  \\
-        31 & 3 & 4 & 5 &  \\
-        32 & 3 & 4 & 5 &  \\
-        45 & 3 & 4 & 5 &  \\
-        46 & 3 & 4 & 5 &  \\
-        47 & 3 & 4 & 5 &  \\
-        48 & 3 & 4 & 5 & 6 \\
-        49 & 3 & 4 & 5 & 6 \\
-        50 & 3 & 4 & 5 & 6 \\
-        \bottomrule
-    \end{tabular}   
-\end{table}
-
-\noindent Pri $f(k) = 2(k-1)^2 - 4$ in $f(k) = 2(k-1)^2 - 5$ so se pojavila odstopanja, vendar le za $k=3$.\\
-
-\noindent Za $f(k)$ sva nato vzeli še $f(k) = 2(k-1)$. Tukaj so rezultati odstopali pri vseh $k$, ki sva jih preizkušali.\\
+$n$, da dimenzija ne bo enaka $k$. Torej linearna funkcija ne bo ustrezna izbira za $f(k)$, če želimo imeti enakost $\dim(C_n(1,2,\dots,k)) = k$.\\
 
 \noindent \textbf{Sklep:}
-Spodnja meja za vrednosti $n$ in $k$, ki sva jih preizkušali je $2(k-1)^2 - 3$.
-    
+Spodnja meja $f(k) < 2(k-1)^2$ za vrednosti $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$ je $f(k) = 2(k-1)^2 - 3$.\\
 
+\noindent \textbf{Komentar:}\\
+Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_dimenzija\_cirkulantnih\_grafov.xlsx}, 
+kjer je vsak list poimenovan po funkciji $f(k)$. Spodnji tabeli prikazujta rezultate le za določne $n$.
+Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je prikazati, kako opazimo da dimenzija ustreza $k$ ali ne.
+
+
+
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov (4. list)}
+        \label{tab:cirkulantni_4}
+        \begin{tabular}{@{}ccccccccc@{}}
+            \toprule
+            n & 3 & 4 & 5 & 6 \\
+            \midrule
+            4 &  &  &  &  \\
+            5 &  &  &  &  \\
+            6 & 3 &  &  &  \\
+            7 & 3 &  &  &  \\
+            8 & 3 &  &  &  \\
+            14 & 3 &  &  &  \\
+            15 & 3 & 4 &  &  \\
+            16 & 3 & 4 &  &  \\
+            17 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            28 & 3 & 4 &  &  \\
+            29 & 3 & 4 &  &  \\
+            30 & 3 & 4 & 5 &  \\
+            31 & 3 & 4 & 5 &  \\
+            32 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 &  \\
+            47 & 3 & 4 & 5 &  \\
+            48 & 3 & 4 & 5 & 6 \\
+            49 & 3 & 4 & 5 & 6 \\
+            50 & 3 & 4 & 5 & 6 \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov (5. list)}
+        \label{tab:cirkulantni_5}
+        \begin{tabular}{@{}ccccccccc@{}}
+            \toprule
+            n & 3 & 4 & 5 & 6 \\
+            \midrule
+            4 &  &  &  &  \\
+            5 & 2 &  &  &  \\
+            6 & 3 &  &  &  \\
+            7 & 3 &  &  &  \\
+            8 & 3 &  &  &  \\
+            14 & 3 &  &  &  \\
+            15 & 3 & 4 &  &  \\
+            16 & 3 & 4 &  &  \\
+            17 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            28 & 3 & 4 &  &  \\
+            29 & 3 & 4 & 5 &  \\
+            30 & 3 & 4 & 5 &  \\
+            31 & 3 & 4 & 5 &  \\
+            32 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 &  \\
+            47 & 3 & 4 & 5 & 6 \\
+            48 & 3 & 4 & 5 & 6 \\
+            49 & 3 & 4 & 5 & 6 \\
+            50 & 3 & 4 & 5 & 6 \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}    
+
+Tabela \ref{tab:cirkulantni_4} prikazuje rezultate za $f(k) = 2(k-1)^2 - 3$, medtem ko tabela \ref{tab:cirkulantni_5} prikazuje rezultate za $f(k) = 2(k-1)^2 - 4$. 
+Iz tabel opazimo, da za $f(k) = 2(k-1)^2 - 3$ enakost velja za vse preizkušene vrednosti, medtem ko za $f(k) = 2(k-1)^2 - 4$ ne velja
+za $n = 5$ in $k = 3$.
+
+\newpage
 \subsection*{Naloga 2}
 
 Vemo, da veljajo sledeče enakosti:
@@ -212,7 +277,7 @@ Vemo, da veljajo sledeče enakosti:
     \item $dim(C_n(1, 2, \ldots, n-2)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 4$
     \item $dim(C_n(1, 2, \ldots, n-3)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 5$
 \end{itemize}
-Želimo videti ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
+Želimo ugotoviti ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
 
 Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa metrično dimenzijo grafa:
 \begin{verbatim}
@@ -239,9 +304,31 @@ in drugo, ki vzame seznam vrednosti $n$:
         return rezultati
 \end{verbatim}
 
-\noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za sve $n \in [7, 80]$ in $m = 4$.
-V nalogi sva na mesto $k$ uporabljali $m = n - k$, saj je v tej nalogi $k$ odvisen od $n$.
+\noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za vse $n \in [7, 80]$ in $m = 4$.
+V nalogi sva na mesto $k$ uporabljali $m = n - k$, saj je $k$ odvisen od $n$.
 Rezultate sva shranili v excel tabeli.
+
+Ustvarili sva seznam s pomočjo for zanke, ki za vsak $n$ izračuna $\lceil \frac{2n}{5} \rceil$. Dobljene vrednosti, pa sva na to primerjali
+z izračunanimi metričnimi dimenzijami.
+\begin{verbatim}
+    #Sezam s predvideno dimenzijo
+    izracun_dim = []
+    for n in sez_n:
+        st = ceil(2*n/5)
+        izracun_dim.append(st)
+
+    #Dimenzija za m=4
+    tabela = pd.read_excel("rezultati_naloga_2.xlsx", sheet_name="dimenzija za m=4")
+    vrednosti = tabela.iloc[:,1].tolist()
+
+    rezultat = [a == b for a, b in zip(izracun_dim, vrednosti)]
+\end{verbatim}
+Najini rezultati so pokazali, da velja enakost med vsemi izračunanimi dimenzijami in $\lceil \frac{2n}{5} \rceil$.\\
+
+\noindent \textbf{Sklep:}
+Za vsak $n \in [7, 80]$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.
+
+
 
 
 
