@@ -56,11 +56,11 @@ Privzeli bomo, da je v vseh definicijah graf usmerjen.
 
 \noindent Metrična dimenzija grafa je pomembna invariantna količina v teoriji grafov, ki meri najmanjšo množico vozlišč, s pomočjo katerih lahko z razdaljami enolično ločimo vsa vozlišča grafa. 
 
-\noindent V projektu obravnavamo \textbf{usmerjene cirkulantne grafe}
+\noindent V projektu sva obravnavali \textbf{usmerjene cirkulantne grafe}
 \[
     C_n(1,2,\dots,k),
 \]
-ter eksperimentalno preverjamo znane teoretične ocene in domneve o njihovi metrični dimenziji. \\
+ter eksperimentalno preverili znane teoretične ocene in domneve o njihovi metrični dimenziji. \\
 
 
 \noindent Znano je, da velja:
@@ -68,82 +68,93 @@ ter eksperimentalno preverjamo znane teoretične ocene in domneve o njihovi metr
     \dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > 2(k-1)^2.
 \]
 
-\noindent Naš cilj je preveriti, ali lahko obstaja manjša meja $f(k) < 2(k-1)^2$.
+\noindent Najin cilj je preveriti, ali lahko obstaja manjša meja $f(k) < 2(k-1)^2$.
 
-\noindent Najprej smo eksperimentalno preverili vrednosti $k \in \{3, 4, 5, 6\}$ in $n \in [4, 77] $ na že znani trditvi ter zbrali rezultate v tabeli.
-Da sma lahko to preverjali, sva definirali funkcijo:
+\noindent Najprej sva eksperimentalno preverili vrednosti $k \in \{3, 4, 5, 6\}$ in $n \in [4, 77] $ na že znani trditvi ter zbrali rezultate v tabeli.
+Da sva lahko to preverili, sva definirali funkcijo:
 
 \begin{verbatim}
     def preveri_dimenzijo(n, k):
-    #funkcija ne deluje za k > n:
-    if k >= n:
-        return {"n": n, 
-                "k": k, 
-                "napaka": "Za cirkulantni graf mora veljati k < n."}
+        #funkcija ne deluje za k > n:
+        if k >= n:
+                return {"n": n, 
+                    "k": k, 
+                    "napaka": "Za cirkulantni graf mora veljati k < n."}
     
-    # V primeru, da je n manjsi od funkcija f(k)
-    if n <= 2*(k - 1)**2:
+        # V primeru, da je n manjsi od funkcija f(k)
+        if n <= 2*(k - 1)**2:
+            return {"n": n, 
+                    "k": k, 
+                    "napaka": "Pogoj n > 2(k - 1)^2 ni izpolnjen."}
+
+        # Ustvari cirkulantni graf
+        Cn_k = clockwise_circulant_graph(n, k)
+
+        # Izračuna razresljivo mn in pove metricno dimenzijo
+        razresljiva_mnozica, dim = metricna_dimenzija_usmerjenega_grafa(Cn_k)
+
+        # Preveri enakost
+        rezultat = (dim == k)
+
         return {"n": n, 
                 "k": k, 
-                "napaka": "Pogoj n > 2(k - 1)^2 ni izpolnjen."}
-
-    # Ustvari cirkulantni graf
-    Cn_k = clockwise_circulant_graph(n, k)
-
-    # Izračuna razresljivo mn in pove metricno dimenzijo
-    razresljiva_mnozica, dim = metricna_dimenzija_usmerjenega_grafa(Cn_k)
-
-    # Preveri enakost
-    rezultat = (dim == k)
-
-    return {"n": n, 
-            "k": k, 
-            "dimCn_k": dim, 
-            "trditev_velja": rezultat}
+                "dimCn_k": dim, 
+                "trditev_velja": rezultat}
 \end{verbatim}
 
 \noindent Funkcija \texttt{preveri\_dimenzijo(n, k)} vrne metrčno dimenzijo grafa $C_n(1,2,\dots,k)$ in preveri, ali velja $\dim(C_n(1,2,\dots,k)) = k$ za podana $n$ in $k$.
+Pri oblikovanju te funkcije sva si pomagali s kodo Maše Popovič iz prejšnjega projekta.
 Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 
 
-\noindent Nato smo za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a$ in preverjali, ali še vedno velja 
+\noindent Nato sva za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a \in \{1, 2, 3, 4, 5\}$ in preverili, ali še vedno velja 
 \[
     \dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > f(k).
 \]
 
-\noindent Ponovno sva definirali funkcijo, kjer sva izbrali $a = 1$:
+\noindent Ponovno sva definirali funkcijo, kjer sva dodali parameter $a$:
 
 \begin{verbatim}
-    def preveri_dimenzijo2(n, k):
-    #funkcija ne deluje za k > n:
-    if k >= n:
-        return {"n": n, 
-                "k": k, 
-                "napaka": "Za cirkulantni graf mora veljati k < n."}
+    def preveri_dimenzijo2(n, k, a):
+        #funkcija ne deluje za k > n:
+        if k >= n:
+            return {"n": n, 
+                    "k": k, 
+                    "napaka": "Za cirkulantni graf mora veljati k < n."}
     
-    # V primeru, da je n manjsi od funkcija f(k)
-    if n <= 2*(k - 1)**2 - 1:
+        # V primeru, da je n manjsi od funkcija f(k)
+        if n <= 2*(k - 1)**2 - a:
+            return {"n": n, 
+                    "k": k, 
+                    "napaka": f"Pogoj n > 2(k-1)^2 - {a} ni izpolnjen."}
+
+        # Ustvari cirkulantni graf
+        Cn_k = clockwise_circulant_graph(n, k)
+
+        # Izračuna razresljivo mn in pove metricno dimenzijo
+        razresljiva_mnozica, dim = metricna_dimenzija_usmerjenega_grafa(Cn_k)
+
+        # Preveri enakost
+        rezultat = (dim == k)
+
         return {"n": n, 
                 "k": k, 
-                "napaka": "Pogoj n > 2(k-1)^2 - 1 ni izpolnjen."}
-
-    # Ustvari cirkulantni graf
-    Cn_k = clockwise_circulant_graph(n, k)
-
-    # Izračuna razresljivo mn in pove metricno dimenzijo
-    razresljiva_mnozica, dim = metricna_dimenzija_usmerjenega_grafa(Cn_k)
-
-    # Preveri enakost
-    rezultat = (dim == k)
-
-    return {"n": n, 
-            "k": k, 
-            "dimCn_k": dim, 
-            "trditev_velja": rezultat}
+                "dimCn_k": dim, 
+                "trditev_velja": rezultat}
 \end{verbatim}
 
-\noindent Kot prej sva vzeli $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$. Rezultati so pokazali, da tudi za $f(k) = 2(k-1)^2 - 1$ velja $\dim(C_n(1,2,\dots,k)) = k$ za vse preizkušene vrednosti. \\
-
+\noindent Kot prej sva vzeli $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$. Rezultati so pokazali sledeče:
+\begin{itemize}
+    \item za $a = 1$: enakost velja za vse $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$,
+    \item za $a = 2$: enakost velja za vse $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$,
+    \item za $a = 3$: enakost velja za vse $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$,
+    \item za $a = 4$: enakost ne velja za $n = 5$ in $k = 3$, $\dim(C_5(1, 2, 3)) = 2$ kar ni enako 3,
+    \item za $a = 5$: enakost ne velja za $n = 5$ in $k = 3$, $\dim(C_5(1, 2, 3)) = 2$ kar ni enako 3.
+\end{itemize}
+Rezultati so pokazali, da je najmanjši $f(k)$ za katerega velja $n > f(k)$ in $\dim(C_n(1,2,\dots,k)) = k$ enak
+\[f(k) = 2(k-1)^2 - 3.\]
+Torej sva našli manjšo funkcijo $f(k)$ kot je bila prej znana meja $2(k-1)^2$. 
+To lahko trdive le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$.\\
 
 
 \subsection*{Naloga 2}
