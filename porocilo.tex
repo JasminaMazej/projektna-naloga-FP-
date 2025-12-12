@@ -154,18 +154,65 @@ Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 Rezultati so pokazali, da je najmanjši $f(k)$ za katerega velja $n > f(k)$ in $\dim(C_n(1,2,\dots,k)) = k$ enak
 \[f(k) = 2(k-1)^2 - 3.\]
 Torej sva našli manjšo funkcijo $f(k)$ od prej znane meje $2(k-1)^2$. 
-To lahko trdive le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na teh vrednostih preverili enakost dimenzije in $k$.
+To lahko trdive le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na teh vrednostih preverili enakost dimenzije in $k$.\\
+
+Kot zanimivost sva si ogledali še, kaj se zgodi če za $f(k)$ uzameve linearno funkcijo. Izbrali sva se $f(k) =  2(k - 1)$. 
+Že pri $k = 3$ lahko opazimo, da je pri $n = 5$ dimenizija enaka 2, kar ni enako $k$. Vidimo tudi, da pri večjih $k$ lahko najdemo tak
+$n$, da dimenzija ne bo enaka $k$. Torej linearna funkcija ne bo ustrezna izbira za $f(k)$, če želimo imeti enakost $\dim(C_n(1,2,\dots,k)) = k$.
 
 \subsection*{Naloga 2}
 
-Vemo:
+Vemo, da veljajo sledeče enakosti:
 \begin{itemize}
     \item $dim(C_n(1, 2, \ldots, n-1)) \geq n-1 \quad n \geq 3$
     \item $dim(C_n(1, 2, \ldots, n-2)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 4$
     \item $dim(C_n(1, 2, \ldots, n-3)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 5$
 \end{itemize}
+Želimo videti ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
 
-Za $n \geq 7$ imamo $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$. \\
+Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa metrično dimenzijo grafa:
+\begin{verbatim}
+    def dimenzija_odvisna_od_n(n, m):
+        if m >= n:
+            return {"n": n, 
+                    "m": m,
+                    "dimenzija": None} 
+    
+        G = clockwise_circulant_graph(n, n-m)
+        razresljiva_mnozica, dim = metricna_dimenzija_usmerjenega_grafa(G)
+        return {"n": n, 
+                "m": m,
+                "dimenzija": dim}
+\end{verbatim}
+in drugo, ki vzame seznam vrednosti $n$:
+\begin{verbatim}
+    def vse_dimenzije(vrednosti_n, m):
+        rezultati = [] 
+
+        for n in vrednosti_n:
+            rezultati.append(dimenzija_odvisna_od_n(n, m))
+    
+        return rezultati
+\end{verbatim}
+
+\noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za sve $n \in [7, 80]$ in $m = 4$.
+V nalogi sva na mesto $k$ uporabljali $m = n - k$, saj je v tej nalogi $k$ odvisen od $n$.
+Rezultate sva shranili v excel tabeli.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %-------------------------------------------------
