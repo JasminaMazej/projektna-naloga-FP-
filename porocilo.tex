@@ -13,6 +13,9 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+\usepackage{booktabs}   % lepše črte v tabelah
+\usepackage{array}      % boljši stolpci
+
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}
 
@@ -144,7 +147,15 @@ Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 
 \noindent Kot prej sva vzeli $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$. Rezultati so pokazali, da tudi za $f(k) = 2(k-1)^2 - 1$ velja $\dim(C_n(1,2,\dots,k)) = k$ za vse preizkušene vrednosti. \\
 
+\noindent Nadalje sva eksperimentalno preverili še za $f(k) = 2(k-1)^2 - a$ , kjer je $a \in \{2, 3, 4, 5\}$. Rezultati so pokazali, da za $a \in \{2, 3\}$ dobimo pravilne vrednosti. \\
 
+\noindent Pri $f(k) = 2(k-1)^2 - 4$ in $f(k) = 2(k-1)^2 - 5$ so se pojavila odstopanja, vendar le za $k=3$.\\
+
+\noindent Za $f(k)$ sva nato vzeli še $f(k) = 2(k-1)$. Tukaj so rezultati odstopali pri vseh $k$, ki sva jih preizkušali.\\
+
+\noindent \textbf{Sklep:}
+Spodnja meja za vrednosti $n$ in $k$, ki sva jih preizkušali je $2(k-1)^2 - 3$.
+    
 
 \subsection*{Naloga 2}
 
