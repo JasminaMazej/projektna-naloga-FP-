@@ -311,8 +311,8 @@ in drugo, ki vzame seznam vrednosti $n$:
 }
 
 \noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za vse $n \in [7, 80]$ in $m = 4$.
-V nalogi sva na mesto $k$ uporabljali $m = n - k$, saj je $k$ odvisen od $n$.
-Rezultate sva shranili v excel tabeli.
+V nalogi sva na mesto $k$ uporabljali $m$, saj sva ga tako definirali v zgornji funkciji.
+Rezultate sva shranili v excel tabelo.
 
 Ustvarili sva seznam s pomočjo for zanke, ki za vsak $n$ izračuna $\lceil \frac{2n}{5} \rceil$. Dobljene vrednosti, pa sva na to primerjali
 z izračunanimi metričnimi dimenzijami.
@@ -338,8 +338,8 @@ Za vsak $n \in [7, 80]$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \
 
 
 \subsection*{Naloga 2.1}
-V tem delu projekta sva eksperimentalno preverili tudi obnašanje metrične dimenzije če uzameva $dim(C_n(1, \dots, n - k))$, kjer 
-sva vzeli $k \in \{5, 6, 7, 8, 9, 10\}$. Označevali sva $m = k$, saj sva v funkcijah uporabljali $n - m$.\\
+V tem delu projekta sva eksperimentalno preverili tudi obnašanje metrične dimenzije če uzameva $dim(C_n(1, \dots, n - m))$, kjer 
+sva vzeli $m \in \{5, 6, 7, 8, 9, 10\}$.\\
 
 \noindent Pri reševanju sva uporabili zgoraj omenjeni funkciji in rezultate shranili v excel datoteko. To lahko najdete na 
 najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
@@ -375,8 +375,8 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
     \end{verbatim}
     }
     \item Za $m = 6$: Podobno kot pri $m = 5$, sva na podlagi izrzačunanih metričnih dimenzij, poskušali najti funkcijo,
-    ki bi jih opisala. Tu nisva imeli take sreče, saj nisve uspele najti funkcije, ki bi natančno opisala vse izračunane dimenzije.
-    Kljub temu, pa nama je uspelo najti približek: 
+    ki bi jih opisala. Tu nisva imeli take sreče, saj nama ni uspelo najti funkcije, ki bi natančno opisala vse izračunane dimenzije.
+    Kljub temu, pa sva poskusili najti približek: 
     \[
         \dim(C_n(1,2,\dots,n - 6)) =
         \begin{cases}
@@ -385,7 +385,7 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
             \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)),     & \text{sicer}.
     \end{cases}
     \]
-    Ta približek je veljal za vse $n \in [11, \ldots, 80]$. Njegovo veljavnost sva preverili s podobno kodo kot prej.
+    Ta približek je veljal za vse $n \in [11, \ldots, 80]$. Njegovo veljavnost sva preverili podobno kot prej.
 \end{itemize}
 
 
