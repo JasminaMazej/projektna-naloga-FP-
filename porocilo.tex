@@ -16,6 +16,7 @@
 \usepackage{booktabs}   % lepše črte v tabelah
 \usepackage{array}      % boljši stolpci
 \usepackage{float}     % H opcija za tabele
+\usepackage{fancyvrb}  % za lepši prikaz kode
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}
@@ -54,7 +55,7 @@ Privzeli bomo, da je v vseh definicijah graf usmerjen.
 \end{definicija}
 
 %-------------------------------------------------
-\section*{Uvod in opis problema}
+\section*{Opis problema in postopek reševanja}
 
 \subsection*{Naloga 1}
 
@@ -77,6 +78,7 @@ ter eksperimentalno preverili znane teoretične ocene in domneve o njihovi metri
 \noindent Najprej sva eksperimentalno preverili vrednosti $k \in \{3, 4, 5, 6\}$ in $n \in [4, 77] $ na že znani trditvi ter zbrali rezultate v tabeli.
 Da sva lahko to preverili, sva definirali funkcijo:
 
+{\scriptsize
 \begin{verbatim}
     def preveri_dimenzijo(n, k):
         #funkcija ne deluje za k > n:
@@ -105,6 +107,7 @@ Da sva lahko to preverili, sva definirali funkcijo:
                 "dimCn_k": dim, 
                 "trditev_velja": rezultat}
 \end{verbatim}
+}
 
 \noindent Funkcija \texttt{preveri\_dimenzijo(n, k)} vrne metrčno dimenzijo grafa $C_n(1,2,\dots,k)$ in preveri, ali velja $\dim(C_n(1,2,\dots,k)) = k$ za podana $n$ in $k$.
 Pri oblikovanju te funkcije sva si pomagali s kodo Maše Popovič iz prejšnjega projekta.
@@ -118,6 +121,7 @@ Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 
 \noindent Ponovno sva definirali funkcijo, kjer sva dodali parameter $a$:
 
+{\scriptsize
 \begin{verbatim}
     def preveri_dimenzijo2(n, k, a):
         #funkcija ne deluje za k > n:
@@ -146,6 +150,7 @@ Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
                 "dimCn_k": dim, 
                 "trditev_velja": rezultat}
 \end{verbatim}
+}
 
 \noindent Kot prej sva vzeli $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$. Rezultati so pokazali sledeče:
 \begin{itemize}
@@ -171,9 +176,6 @@ Spodnja meja $f(k) < 2(k-1)^2$ za vrednosti $n \in [4, 77]$ in $k \in \{3, 4, 5,
 Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_dimenzija\_cirkulantnih\_grafov.xlsx}, 
 kjer je vsak list poimenovan po funkciji $f(k)$. Spodnji tabeli prikazujta rezultate le za določne $n$.
 Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je prikazati, kako opazimo da dimenzija ustreza $k$ ali ne.
-
-
-
 
 \begin{table}[H]
     \centering
@@ -280,6 +282,7 @@ Vemo, da veljajo sledeče enakosti:
 Želimo ugotoviti ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
 
 Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa metrično dimenzijo grafa:
+{\scriptsize
 \begin{verbatim}
     def dimenzija_odvisna_od_n(n, m):
         if m >= n:
@@ -293,7 +296,9 @@ Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa met
                 "m": m,
                 "dimenzija": dim}
 \end{verbatim}
+}
 in drugo, ki vzame seznam vrednosti $n$:
+{\scriptsize
 \begin{verbatim}
     def vse_dimenzije(vrednosti_n, m):
         rezultati = [] 
@@ -303,6 +308,7 @@ in drugo, ki vzame seznam vrednosti $n$:
     
         return rezultati
 \end{verbatim}
+}
 
 \noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za vse $n \in [7, 80]$ in $m = 4$.
 V nalogi sva na mesto $k$ uporabljali $m = n - k$, saj je $k$ odvisen od $n$.
@@ -310,6 +316,7 @@ Rezultate sva shranili v excel tabeli.
 
 Ustvarili sva seznam s pomočjo for zanke, ki za vsak $n$ izračuna $\lceil \frac{2n}{5} \rceil$. Dobljene vrednosti, pa sva na to primerjali
 z izračunanimi metričnimi dimenzijami.
+{\scriptsize
 \begin{verbatim}
     #Sezam s predvideno dimenzijo
     izracun_dim = []
@@ -323,13 +330,63 @@ z izračunanimi metričnimi dimenzijami.
 
     rezultat = [a == b for a, b in zip(izracun_dim, vrednosti)]
 \end{verbatim}
+}
 Najini rezultati so pokazali, da velja enakost med vsemi izračunanimi dimenzijami in $\lceil \frac{2n}{5} \rceil$.\\
 
 \noindent \textbf{Sklep:}
 Za vsak $n \in [7, 80]$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.
 
 
+\subsection*{Naloga 2.1}
+V tem delu projekta sva eksperimentalno preverili tudi obnašanje metrične dimenzije če uzameva $dim(C_n(1, \dots, n - k))$, kjer 
+sva vzeli $k \in \{5, 6, 7, 8, 9, 10\}$. Označevali sva $m = k$, saj sva v funkcijah uporabljali $n - m$.\\
 
+\noindent Pri reševanju sva uporabili zgoraj omenjeni funkciji in rezultate shranili v excel datoteko. To lahko najdete na 
+najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
+
+\noindent Najne ugotovitve so sledeče:
+\begin{itemize}
+    \item Za $m = 5$: Iz rezultatov sva opazili, da metrično dimenzijo lahko opiševa s funkcijo
+    \[\dim(C_n(1,2,\dots,n-5)) =
+        \begin{cases}
+            \dfrac{n}{3}, & \text{če } 3 \mid n, \\[10pt]
+            \left\lceil \dfrac{n}{3} \right\rceil + 1, & \text{sicer}.
+        \end{cases}\]
+    Definirali sva to funkcijo in zračunali njene vrednosti za $n \in [7, \ldots ,80]$. 
+    {\scriptsize
+    \begin{verbatim}
+        def dimenzija_m5(n):
+            if n % 3 == 0:
+                return n // 3
+            else:
+                return ceil(n / 3) + 1
+    \end{verbatim}
+    }
+    Nato, pa sva rezultate te funkcije
+    primerjali z izračunanimi metričnimi dimenzijami in ugotovili, da se ujemajo za vse $n \in [9, \ldots, 80]$.
+    {\scriptsize
+    \begin{verbatim}
+        dimenzije_m5 = [dimenzija_m5(n) for n in sez_n]
+
+        tabela2 = pd.read_excel("rezultati_naloga_2.xlsx", sheet_name="dimenzija za m=5-10")
+        vr_m5 = tabela2.iloc[:,1].tolist()
+
+        rezultat = [a == b for a, b in zip(dimenzije_m5, vr_m5)]
+    \end{verbatim}
+    }
+    \item Za $m = 6$: Podobno kot pri $m = 5$, sva na podlagi izrzačunanih metričnih dimenzij, poskušali najti funkcijo,
+    ki bi jih opisala. Tu nisva imeli take sreče, saj nisve uspele najti funkcije, ki bi natančno opisala vse izračunane dimenzije.
+    Kljub temu, pa nama je uspelo najti približek: 
+    \[
+        \dim(C_n(1,2,\dots,n - 6)) =
+        \begin{cases}
+            \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) - 1, & \text{če } 11 \mid n, \\[8pt]
+            \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) + 1, & \text{če } n = \{43, 54, 65, 68, 76, 79\} \\[8pt]
+            \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)),     & \text{sicer}.
+    \end{cases}
+    \]
+    Ta približek je veljal za vse $n \in [11, \ldots, 80]$. Njegovo veljavnost sva preverili s podobno kodo kot prej.
+\end{itemize}
 
 
 
