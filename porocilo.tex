@@ -171,7 +171,7 @@ To lahko trdiva le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na t
 Že pri $k = 3$  lahko opazimo, da je pri $n = 5$ dimenizija enaka 2, kar ni enako $k$. Vidimo tudi, da pri večjih $k$ lahko najdemo tak
 $n$, da dimenzija ne bo enaka $k$. Torej linearna funkcija ne bo ustrezna izbira za $f(k)$, če želimo imeti enakost $\dim(C_n(1,2,\dots,k)) = k$.\\
 
-\noindent \textbf{Sklep:}
+\noindent \textbf{Sklep:} \\
 Spodnja meja $f(k) < 2(k-1)^2$ za vrednosti $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$ je $f(k) = 2(k-1)^2 - 3$.\\
 
 \noindent \textbf{Komentar:}\\
@@ -343,7 +343,7 @@ z izračunanimi metričnimi dimenzijami.
 
 \noindent Rezultati so pokazali, da velja enakost med vsemi izračunanimi dimenzijami in $\lceil \frac{2n}{5} \rceil$.\\
 
-\noindent \textbf{Sklep:}
+\noindent \textbf{Sklep:} \\
 Za vsak $n \in [7, 80]$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.
 
 
@@ -393,6 +393,124 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
     \item za $m = 8, 9, 10$: Pri teh vrednostih nisva iskali nobene funkcije, saj sklepava na podlagi prejšnjih dveh, da je iskanje take funkcije za večje $m$ zelo zahtevno in verjetno ne bo dalo dobrih rezultatov.
 \end{itemize}
 
+\noindent \textbf{Sklep:} \\
+Za m = 5 sva našli funkcijo, ki natančno opisuje metrično dimenzijo $dim(C_n(1, \dots, n - 5))$ za vse $n \in [9, 80]$, in sicer 
+\[\dim(C_n(1,2,\dots,n-5)) =
+        \begin{cases}
+            \dfrac{n}{3}, & \text{če } 3 \mid n, \\[10pt]
+            \left\lceil \dfrac{n}{3} \right\rceil + 1, & \text{sicer}.
+        \end{cases}\] \\
+\noindent Za $m = 6$ sva našli približek, ki velja za vse $n \in [11, 80]$, in sicer
+\[
+    \dim(C_n(1,2,\dots,n - 6)) =
+    \begin{cases}
+        \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) - 1, & \text{če } 11 \mid n, \\[8pt]
+        \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) + 1, & \text{če } n = \{43, 54, 65, 68, 76, 79\} \\[8pt]
+        \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)),     & \text{sicer}.
+    \end{cases}
+\]
+Za ostale vrednosti $m$ nisva našli nobene funkcije, ki bi natančno opisala metrično dimenzijo.
+
+\noindent \textbf{Komentar:}\\
+Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_naloga\_2.xlsx}. Spodnji tabeli prikazujeta rezultate le za določen $n$.
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov m = 4 (1. list)}
+        \label{tab:cirkulantni_m4}
+        \begin{tabular}{@{}ccccccccc@{}}
+            \toprule
+            n &  4  \\
+            \midrule
+            7 & 3  \\
+            8 & 4 \\
+            9 & 4 \\
+            10 & 4 \\
+            11 & 5 \\
+            12 & 5 \\
+            13 & 6 \\
+            14 & 6 \\
+            15 & 6  \\
+            16 & 7  \\
+            17 & 7  \\
+            18 & 8  \\
+            19 & 8  \\
+            20 & 8  \\
+            21 & 9  \\
+            22 & 9  \\
+            23 & 10  \\
+            24 & 10  \\
+            25 & 10  \\
+            26 & 11  \\
+            27 & 11  \\
+            28 & 12 \\
+            29 & 12  \\
+            30 & 12  \\
+            31 & 13 \\
+            32 & 13 \\
+            33 & 14 \\
+            34 & 14 \\
+            35 & 14 \\
+            36 & 15 \\
+            37 & 15 \\
+            38 & 16 \\
+            39 & 16 \\
+            40 & 16 \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov $m \in \{5, 6, 7, 8, 9, 10\}$ (2. list)}
+        \label{tab:cirkulantni_m_vec}
+        \begin{tabular}{@{}ccccccccc@{}}
+            \toprule
+            n & 5 & 6 & 7 & 8 & 9 & 10 \\
+            \midrule
+            7 & 2 & 1 &  &  &  &  \\
+            8 & 3 & 2 & 1 &  &  &  \\
+            9 & 3 & 3 & 2 & 1 &  &  \\
+            10 & 5 & 3 & 3 & 2 & 1 &  \\
+            11 & 5 & 4 & 4 & 3 & 2 & 1 \\
+            12 & 4 & 6 & 3 & 4 & 3 & 2 \\
+            13 & 6 & 6 & 5 & 5 & 4 & 3 \\
+            14 & 6 & 6 & 7 & 4 & 5 & 4 \\
+            15 & 5 & 6 & 6 & 5 & 5 & 5 \\
+            16 & 7 & 7 & 6 & 8 & 5 & 5 \\
+            17 & 7 & 7 & 7 & 7 & 6 & 6 \\
+            18 & 6 & 7 & 7 & 6 & 9 & 5 \\
+            19 & 8 & 8 & 8 & 8 & 8 & 7 \\
+            20 & 8 & 8 & 8 & 8 & 8 & 10 \\
+            21 & 7 & 9 & 8 & 7 & 9 & 9 \\
+            22 & 9 & 8 & 9 & 9 & 9 & 8 \\
+            23 & 9 & 10 & 9 & 10 & 10 & 9 \\
+            24 & 8 & 10 & 9 & 8 & 9 & 9 \\
+            25 & 10 & 10 & 10 & 10 & 10 & 10 \\
+            26 & 10 & 10 & 10 & 11 & 11 & 11 \\
+            27 & 9 & 11 & 11 & 9 & 10 & 10 \\
+            28 & 11 & 11 & 11 & 11 & 12 & 12 \\
+            29 & 11 & 11 & 11 & 12 & 12 & 12 \\
+            30 & 10 & 12 & 12 & 10 & 12 & 11 \\
+            31 & 12 & 12 & 12 & 13 & 12 & 13 \\
+            32 & 12 & 13 & 12 & 13 & 13 & 12 \\
+            33 & 11 & 12 & 13 & 11 & 14 & 12 \\
+            34 & 13 & 14 & 13 & 14 & 12 & 13 \\
+            35 & 13 & 14 & 14 & 14 & 14 & 13 \\
+            36 & 12 & 14 & 14 & 12 & 14 & 14 \\
+            37 & 14 & 14 & 14 & 15 & 14 & 15 \\
+            38 & 14 & 15 & 15 & 15 & 15 & 14 \\
+            39 & 13 & 15 & 15 & 13 & 15 & 16 \\
+            40 & 15 & 15 & 15 & 16 & 16 & 15 \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}   
+
+\noindent Tabela \ref{tab:cirkulantni_m4} prikazuje rezultate za $m = 4$, medtem ko tabela \ref{tab:cirkulantni_m_vec} prikazuje rezultate za $m \in \{5, 6, 7, 8, 9, 10\}$. 
+Iz tabel opazimo, da za $m = 4$ enakost velja za vse preizkušene vrednosti. Za ostale $m$ je težje določiti pravilo.
 
 
 \end{document}
