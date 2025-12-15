@@ -17,6 +17,8 @@
 \usepackage{array}      % boljši stolpci
 \usepackage{float}     % H opcija za tabele
 \usepackage{fancyvrb}  % za lepši prikaz kode
+\usepackage[table]{xcolor}
+
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}
@@ -110,11 +112,11 @@ Da sva lahko to preverili, sva definirali funkcijo:
 }
 
 \noindent Funkcija \texttt{preveri\_dimenzijo(n, k)} vrne metrčno dimenzijo grafa $C_n(1,2,\dots,k)$ in preveri, ali velja $\dim(C_n(1,2,\dots,k)) = k$ za podana $n$ in $k$.
-Pri oblikovanju te funkcije sva si pomagali s kodo Maše Popovič iz prejšnjega projekta.
+Pri oblikovanju te funkcije sva si pomagali s kodo Maše Popovič iz projekta iz študijskega leta 2024/2025.
 Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 
 
-\noindent Nato sva za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a \in \{1, 2, 3, 4, 5\}$ in preverili, ali še vedno velja 
+\noindent Nato sva za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a$. Preverili sva za vrednosti $a \in \{1, 2, 3, 4, 5\}$, ali še vedno velja: 
 \[
     \dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > f(k).
 \]
@@ -163,10 +165,10 @@ Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 Rezultati so pokazali, da je najmanjši $f(k)$ za katerega velja $n > f(k)$ in $\dim(C_n(1,2,\dots,k)) = k$ enak
 \[f(k) = 2(k-1)^2 - 3.\]
 Torej sva našli manjšo funkcijo $f(k)$ od prej znane meje $2(k-1)^2$. 
-To lahko trdive le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na teh vrednostih preverili enakost dimenzije in $k$.\\
+To lahko trdiva le za $n \in [4, 77]$ in $k \in \{3, 4, 5, 6\}$, saj sva le na teh vrednostih preverili enakost dimenzije.\\
 
-Kot zanimivost sva si ogledali še, kaj se zgodi če za $f(k)$ uzameve linearno funkcijo. Izbrali sva se $f(k) =  2(k - 1)$. 
-Že pri $k = 3$ lahko opazimo, da je pri $n = 5$ dimenizija enaka 2, kar ni enako $k$. Vidimo tudi, da pri večjih $k$ lahko najdemo tak
+\noindent Kot zanimivost sva si ogledali še, kaj se zgodi, če za $f(k)$ uzameva linearno funkcijo. Izbrali sva $f(k) =  2(k - 1)$. 
+Že pri $k = 3$  lahko opazimo, da je pri $n = 5$ dimenizija enaka 2, kar ni enako $k$. Vidimo tudi, da pri večjih $k$ lahko najdemo tak
 $n$, da dimenzija ne bo enaka $k$. Torej linearna funkcija ne bo ustrezna izbira za $f(k)$, če želimo imeti enakost $\dim(C_n(1,2,\dots,k)) = k$.\\
 
 \noindent \textbf{Sklep:}
@@ -231,7 +233,7 @@ Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je 
             n & 3 & 4 & 5 & 6 \\
             \midrule
             4 &  &  &  &  \\
-            5 & 2 &  &  &  \\
+            5 & \cellcolor{red}2 &  &  &  \\
             6 & 3 &  &  &  \\
             7 & 3 &  &  &  \\
             8 & 3 &  &  &  \\
@@ -266,22 +268,29 @@ Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je 
     \end{minipage}
 \end{table}    
 
-Tabela \ref{tab:cirkulantni_4} prikazuje rezultate za $f(k) = 2(k-1)^2 - 3$, medtem ko tabela \ref{tab:cirkulantni_5} prikazuje rezultate za $f(k) = 2(k-1)^2 - 4$. 
+\noindent Tabela \ref{tab:cirkulantni_4} prikazuje rezultate za $f(k) = 2(k-1)^2 - 3$, medtem ko tabela \ref{tab:cirkulantni_5} prikazuje rezultate za $f(k) = 2(k-1)^2 - 4$. 
 Iz tabel opazimo, da za $f(k) = 2(k-1)^2 - 3$ enakost velja za vse preizkušene vrednosti, medtem ko za $f(k) = 2(k-1)^2 - 4$ ne velja
 za $n = 5$ in $k = 3$.
 
 \newpage
 \subsection*{Naloga 2}
 
-Vemo, da veljajo sledeče enakosti:
+\noindent Vemo, da veljajo sledeče enakosti:
 \begin{itemize}
     \item $dim(C_n(1, 2, \ldots, n-1)) \geq n-1 \quad n \geq 3$
     \item $dim(C_n(1, 2, \ldots, n-2)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 4$
     \item $dim(C_n(1, 2, \ldots, n-3)) = \lfloor \frac{n}{2} \rfloor \quad n \geq 5$
 \end{itemize}
-Želimo ugotoviti ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
+\noindent Preverili sva, ali za $n \geq 7$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.\\
 
-Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa metrično dimenzijo grafa:
+\noindent Nato sva raziskali še, ali obstajajo podobni rezultati za $dim(C_n(1,\dots, n - k))$ za $k \geq 5$.
+Da sva lažje razlikovali med to in prejšnjo nalogo, sva označili $m := k$.\\
+
+\subsubsection*{Naloga 2.1}
+
+\noindent Enakost $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$ za $n \geq 7$ sva preverili tako, da sva definirali dve funkciji. 
+Funkcija $\textit{dimenzija\_odvisna\_od\_n(n, m)}$ računa metrično dimenzijo grafa:
+
 {\scriptsize
 \begin{verbatim}
     def dimenzija_odvisna_od_n(n, m):
@@ -297,7 +306,8 @@ Enakost sva preverili tako, da sva definirali dve funkciji. Prvo, ki računa met
                 "dimenzija": dim}
 \end{verbatim}
 }
-in drugo, ki vzame seznam vrednosti $n$:
+
+\noindent Funkcija $\textit{vse\_dimenzije(vrednosti\_n, m)}$ vzame seznam vrednosti $n$ in vrne seznam izračunanih metričnih dimenzij:
 {\scriptsize
 \begin{verbatim}
     def vse_dimenzije(vrednosti_n, m):
@@ -310,11 +320,10 @@ in drugo, ki vzame seznam vrednosti $n$:
 \end{verbatim}
 }
 
-\noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za vse $n \in [7, 80]$ in $m = 4$.
-V nalogi sva na mesto $k$ uporabljali $m$, saj sva ga tako definirali v zgornji funkciji.
-Rezultate sva shranili v excel tabelo.
+\noindent Na podlagi teh dveh funkcij, sva izračunali metrično dimenzijo za vse $n\in[7, 80]$ in $m = 4$.
+Rezultate sva shranili v excel tabelo. \\
 
-Ustvarili sva seznam s pomočjo for zanke, ki za vsak $n$ izračuna $\lceil \frac{2n}{5} \rceil$. Dobljene vrednosti, pa sva na to primerjali
+\noindent Ustvarili sva seznam s pomočjo for zanke, ki za vsak $n$ izračuna $\lceil \frac{2n}{5} \rceil$. Dobljene vrednosti, pa sva na to primerjali
 z izračunanimi metričnimi dimenzijami.
 {\scriptsize
 \begin{verbatim}
@@ -331,14 +340,15 @@ z izračunanimi metričnimi dimenzijami.
     rezultat = [a == b for a, b in zip(izracun_dim, vrednosti)]
 \end{verbatim}
 }
-Najini rezultati so pokazali, da velja enakost med vsemi izračunanimi dimenzijami in $\lceil \frac{2n}{5} \rceil$.\\
+
+\noindent Rezultati so pokazali, da velja enakost med vsemi izračunanimi dimenzijami in $\lceil \frac{2n}{5} \rceil$.\\
 
 \noindent \textbf{Sklep:}
 Za vsak $n \in [7, 80]$ velja $dim(C_n(1, \dots, n - 4)) = \lceil \frac{2n}{5} \rceil$.
 
 
-\subsection*{Naloga 2.1}
-V tem delu projekta sva eksperimentalno preverili tudi obnašanje metrične dimenzije če uzameva $dim(C_n(1, \dots, n - m))$, kjer 
+\subsubsection*{Naloga 2.2}
+V tem delu projekta sva eksperimentalno preverili obnašanje metrične dimenzije $dim(C_n(1, \dots, n - m))$, kjer 
 sva vzeli $m \in \{5, 6, 7, 8, 9, 10\}$.\\
 
 \noindent Pri reševanju sva uporabili zgoraj omenjeni funkciji in rezultate shranili v excel datoteko. To lahko najdete na 
@@ -346,13 +356,13 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
 
 \noindent Najne ugotovitve so sledeče:
 \begin{itemize}
-    \item Za $m = 5$: Iz rezultatov sva opazili, da metrično dimenzijo lahko opiševa s funkcijo
+    \item Za $m = 5$: Iz rezultatov sva opazili, da lahko metrično dimenzijo opiševa s funkcijo
     \[\dim(C_n(1,2,\dots,n-5)) =
         \begin{cases}
             \dfrac{n}{3}, & \text{če } 3 \mid n, \\[10pt]
             \left\lceil \dfrac{n}{3} \right\rceil + 1, & \text{sicer}.
         \end{cases}\]
-    Definirali sva to funkcijo in zračunali njene vrednosti za $n \in [7, \ldots ,80]$. 
+    Definirali sva funkcijo $\textit{dimenzija\_m5(n)}$ in zračunali njene vrednosti za $n \in \{7, \ldots ,80\}$. 
     {\scriptsize
     \begin{verbatim}
         def dimenzija_m5(n):
@@ -362,134 +372,27 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
                 return ceil(n / 3) + 1
     \end{verbatim}
     }
-    Nato, pa sva rezultate te funkcije
-    primerjali z izračunanimi metričnimi dimenzijami in ugotovili, da se ujemajo za vse $n \in [9, \ldots, 80]$.
-    {\scriptsize
-    \begin{verbatim}
-        dimenzije_m5 = [dimenzija_m5(n) for n in sez_n]
-
-        tabela2 = pd.read_excel("rezultati_naloga_2.xlsx", sheet_name="dimenzija za m=5-10")
-        vr_m5 = tabela2.iloc[:,1].tolist()
-
-        rezultat = [a == b for a, b in zip(dimenzije_m5, vr_m5)]
-    \end{verbatim}
-    }
+    Nato sva rezultate te funkcije    primerjali z izračunanimi metričnimi dimenzijami in ugotovili, da se ujemajo za vse $n \in [9, \ldots, 80]$.
+    
     \item Za $m = 6$: Podobno kot pri $m = 5$, sva na podlagi izrzačunanih metričnih dimenzij, poskušali najti funkcijo,
     ki bi jih opisala. Tu nisva imeli take sreče, saj nama ni uspelo najti funkcije, ki bi natančno opisala vse izračunane dimenzije.
-    Kljub temu, pa sva poskusili najti približek: 
+    Poskušali sva s funkcijo $dim(C_n(1, \ldots , n-6)) = \lfloor \frac{9n}{25} + b \rfloor$ za različne vrednosti $b$, vendar nobena ni ustrezala vsem izračunanim dimenzijam.
+    Za $b = 1$ so bile razlike najmanjše, zato sva tej funkciji posvetili največ pozornosti. Definirali sva funkcijo:
     \[
         \dim(C_n(1,2,\dots,n - 6)) =
         \begin{cases}
             \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) - 1, & \text{če } 11 \mid n, \\[8pt]
             \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)) + 1, & \text{če } n = \{43, 54, 65, 68, 76, 79\} \\[8pt]
             \operatorname{int}(\operatorname{round}(\frac{9n}{25} + 1)),     & \text{sicer}.
-    \end{cases}
+        \end{cases}
     \]
     Ta približek je veljal za vse $n \in [11, \ldots, 80]$. Njegovo veljavnost sva preverili podobno kot prej.
+
+    \item Za $m = 7$: Kot pri $ m=6$ sva poskusili s funkcijo $dim(C_n(1, \ldots , n-6)) = \lfloor \frac{9n}{25} + b \rfloor$ za $b \in \{0, 1, 2, 3, 4, 5\}$.
+    Nobena ni ustrezala vsem izračunanim dimenzijam. Najboljše rezultate je dala funkcija za $b = 3$, a je odstopala pri več vrednostih $n$. Zato je nisva nadalje popravljali.
+    \item za $m = 8, 9, 10$: Pri teh vrednostih nisva iskali nobene funkcije, saj sklepava na podlagi prejšnjih dveh, da je iskanje take funkcije za večje $m$ zelo zahtevno in verjetno ne bo dalo dobrih rezultatov.
 \end{itemize}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%-------------------------------------------------
-\section*{Problem 1: Iskanje funkcije $f(k)$}
-
-Naloga:
-\[
-\text{za } k\ge 3 \text{ poišči } f(k)<2(k-1)^2 \text{, da velja } \dim(C_n(1,\dots,k))=k.
-\]
-
-Eksperimentalno smo s pomočjo izračunov preverili več vrednosti $k$ in $n$.
-
-\textbf{Rezultati (iz Excel tabele):}
-\begin{itemize}
-\item za $k=3$: $f(3) = \underline{\hspace{1cm}}$,
-\item za $k=4$: $f(4) = \underline{\hspace{1cm}}$,
-\item za $k=5$: $f(5) = \underline{\hspace{1cm}}$.
-\end{itemize}
-
-(V te vrstice samo prepišeš konkretne vrednosti iz Excel tabele.)
-
-Ugotovimo, da v vseh obravnavanih primerih velja:
-\[
-f(k) < 2(k-1)^2.
-\]
-
-%-------------------------------------------------
-\section*{5. Znane spodnje meje}
-
-Velja:
-\[
-\dim(C_n(1,\dots,n-1)) \ge n-1,\quad n\ge 3,
-\]
-\[
-\dim(C_n(1,\dots,n-2)) \ge \left\lceil\frac{n}{2}\right\rceil,\quad n\ge 4,
-\]
-\[
-\dim(C_n(1,\dots,n-3)) \ge \left\lceil\frac{n}{2}\right\rceil,\quad n\ge 5.
-\]
-
-Tudi te ocene se skladajo z našimi numeričnimi rezultati.
-
-%-------------------------------------------------
-\section*{6. Conjecture 2: Primer $k = n-4$}
-
-Domneva:
-\[
-\dim(C_n(1,2,\dots,n-4)) = \left\lceil\frac{2n}{5}\right\rceil, \quad n\ge 7.
-\]
-
-S pomočjo izračunov za $7 \le n \le 40$ smo ugotovili:
-
-\begin{center}
-\emph{Domneva velja za vse preizkušene vrednosti $n$.}
-\end{center}
-
-(Tu lahko po želji vstaviš tudi posnetek zaslona Excel tabele.)
-
-%-------------------------------------------------
-\section*{7. Splošni primer $k \ge 5$}
-
-Za vrednosti $k=5,6,7,8,9,10$ smo eksperimentalno izračunali vrednosti
-\[
-\dim(C_n(1,\dots,n-k)).
-\]
-
-Iz rezultatov (glej Excel datoteko) opazimo:
-\begin{itemize}
-\item metrična dimenzija narašča približno linearno z $n$,
-\item večje kot je $k$, počasnejša je rast,
-\item zdi se, da velja približna zveza:
-\[
-\dim(C_n(1,\dots,n-k)) \approx \alpha_k n.
-\]
-\end{itemize}
-
-%-------------------------------------------------
-\section*{8. Zaključek}
-
-V nalogi smo uspešno:
-\begin{itemize}
-\item implementirali izračun metrične dimenzije,
-\item eksperimentalno določili boljše meje za Problem 1,
-\item potrdili veljavnost domneve za $k=n-4$,
-\item ter analizirali obnašanje za splošne vrednosti $k\ge 5$.
-\end{itemize}
-
-Projekt potrjuje, da je kombinacija ILP in eksperimentalne analize učinkovito orodje pri preučevanju metrične dimenzije.
-
-\nocite{*}
 
 \end{document}
