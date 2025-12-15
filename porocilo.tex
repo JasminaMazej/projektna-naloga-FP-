@@ -57,9 +57,9 @@ Privzeli bomo, da je v vseh definicijah graf usmerjen.
 \end{definicija}
 
 %-------------------------------------------------
-section*{Začetni problemi}
+\section*{Začetni problemi}
 
-\noindent Ker imava obe računalnike z operacijskim sistemom Windows, sva se morali omejiti na manjše število preozkušenih vrednosti.
+\noindent Ker imava obe računalnike z operacijskim sistemom Windows, sva se morali omejiti na manjše število preizkušenih vrednosti.
 
 
 \section*{Opis problema in postopek reševanja}
@@ -80,7 +80,7 @@ ter eksperimentalno preverili znane teoretične ocene in domneve o njihovi metri
     \dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > 2(k-1)^2.
 \]
 
-\noindent Najin cilj je preveriti, ali lahko obstaja manjša meja $f(k) < 2(k-1)^2$.
+\noindent Najin cilj je preveriti, ali obstaja manjša meja $f(k) < 2(k-1)^2$.
 
 \noindent Najprej sva eksperimentalno preverili vrednosti $k \in \{3, 4, 5, 6\}$ in $n \in [4, 77] $ na že znani trditvi ter zbrali rezultate v tabeli.
 Da sva lahko to preverili, sva definirali funkcijo:
@@ -116,12 +116,12 @@ Da sva lahko to preverili, sva definirali funkcijo:
 \end{verbatim}
 }
 
-\noindent Funkcija \texttt{preveri\_dimenzijo(n, k)} vrne metrčno dimenzijo grafa $C_n(1,2,\dots,k)$ in preveri, ali velja $\dim(C_n(1,2,\dots,k)) = k$ za podana $n$ in $k$.
+\noindent Funkcija $\textit{preveri\_dimenzijo(n, k)}$ vrne metrčno dimenzijo grafa $C_n(1,2,\dots,k)$ in preveri, ali velja $\dim(C_n(1,2,\dots,k)) = k$ za podana $n$ in $k$.
 Pri oblikovanju te funkcije sva si pomagali s kodo Maše Popovič iz projekta iz študijskega leta 2024/2025.
 Rezultati so potrdili znano trditev za vse preizkušene vrednosti. \\
 
 
-\noindent Nato sva za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a$. Preverili sva za vrednosti $a \in \{1, 2, 3, 4, 5\}$, ali še vedno velja: 
+\noindent Nato sva za $f(k)$ izbrali funkcije $f(k) = 2(k-1)^2 - a$ za poljuben $a$. Za vrednosti $a \in \{1, 2, 3, 4, 5\}$ sva preverili, ali še vedno velja: 
 \[
     \dim(C_n(1,2,\dots,k)) = k \quad \text{za } n > f(k).
 \]
@@ -379,7 +379,7 @@ najnem repozitoriju pod naslovom \texttt{rezultati\_naloga\_2.xlsx}.\\
     }
     Nato sva rezultate te funkcije    primerjali z izračunanimi metričnimi dimenzijami in ugotovili, da se ujemajo za vse $n \in [9, \ldots, 80]$.
     
-    \item Za $m = 6$: Podobno kot pri $m = 5$, sva na podlagi izrzačunanih metričnih dimenzij, poskušali najti funkcijo,
+    \item Za $m = 6$: Podobno kot pri $m = 5$, sva na podlagi izračunanih metričnih dimenzij, poskušali najti funkcijo,
     ki bi jih opisala. Tu nisva imeli take sreče, saj nama ni uspelo najti funkcije, ki bi natančno opisala vse izračunane dimenzije.
     Poskušali sva s funkcijo $dim(C_n(1, \ldots , n-6)) = \lfloor \frac{9n}{25} + b \rfloor$ za različne vrednosti $b$, vendar nobena ni ustrezala vsem izračunanim dimenzijam.
     Za $b = 1$ so bile razlike najmanjše, zato sva tej funkciji posvetili največ pozornosti. Definirali sva funkcijo:
@@ -425,6 +425,7 @@ Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_naloga\_2.xlsx}. Spo
         \centering
         \caption{Dimenzije cirkulantnih grafov m = 4 (1. list)}
         \label{tab:cirkulantni_m4}
+        \scriptsize
         \begin{tabular}{@{}ccccccccc@{}}
             \toprule
             n &  4  \\
@@ -471,6 +472,7 @@ Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_naloga\_2.xlsx}. Spo
         \centering
         \caption{Dimenzije cirkulantnih grafov $m \in \{5, 6, 7, 8, 9, 10\}$ (2. list)}
         \label{tab:cirkulantni_m_vec}
+        \scriptsize
         \begin{tabular}{@{}ccccccccc@{}}
             \toprule
             n & 5 & 6 & 7 & 8 & 9 & 10 \\
