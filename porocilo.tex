@@ -9,7 +9,6 @@
 \usepackage{fancyhdr}
 \usepackage{url}
 \usepackage{graphicx}
-\usepackage{xcolor}
 \usepackage{amsthm}
 \usepackage{amssymb}
 
@@ -18,7 +17,6 @@
 \usepackage{float}     % H opcija za tabele
 \usepackage{fancyvrb}  % za lepši prikaz kode
 \usepackage[table]{xcolor}
-
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}
@@ -188,27 +186,370 @@ Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je 
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
+        \caption{Dimenzije cirkulantnih grafov (1. list)}
+        \label{tab:cirkulantni_1}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            4 &  &  &  &  \\
+            5 &  &  &  &  \\
+            6 &  &  &  &  \\
+            7 &  &  &  &  \\
+            8 &  &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
+            14 & 3 &  &  &  \\
+            15 & 3 &  &  &  \\
+            16 & 3 &  &  &  \\
+            17 & 3 &  &  &  \\
+            18 & 3 &  &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
+            28 & 3 & 4 &  &  \\
+            29 & 3 & 4 &  &  \\
+            30 & 3 & 4 &  &  \\
+            31 & 3 & 4 &  &  \\
+            32 & 3 & 4 &  &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov (2. list)}
+        \label{tab:cirkulantni_2}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            4 &  &  &  &  \\
+            5 &  &  &  &  \\
+            6 &  &  &  &  \\
+            7 &  &  &  &  \\
+            8 & 3 &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
+            14 & 3 &  &  &  \\
+            15 & 3 &  &  &  \\
+            16 & 3 &  &  &  \\
+            17 & 3 &  &  &  \\
+            18 & 3 & 4 &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
+            28 & 3 & 4 &  &  \\
+            29 & 3 & 4 &  &  \\
+            30 & 3 & 4 &  &  \\
+            31 & 3 & 4 &  &  \\
+            32 & 3 & 4 & 5 &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}    
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (1. list)}
+        \label{tab:cirkulantni_1_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            40 & 3 & 4 & 5 &  \\
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 &  \\
+            47 & 3 & 4 & 5 &  \\
+            48 & 3 & 4 & 5 &  \\
+            49 & 3 & 4 & 5 &  \\
+            50 & 3 & 4 & 5 &  \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (2. list)}
+        \label{tab:cirkulantni_2_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            40 & 3 & 4 & 5 &  \\
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 &  \\
+            47 & 3 & 4 & 5 &  \\
+            48 & 3 & 4 & 5 &  \\
+            49 & 3 & 4 & 5 &  \\
+            50 & 3 & 4 & 5 & 6 \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table} 
+  
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov (3. list)}
+        \label{tab:cirkulantni_3}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            4 &  &  &  &  \\
+            5 &  &  &  &  \\
+            6 &  &  &  &  \\
+            7 & 3 &  &  &  \\
+            8 & 3 &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
+            14 & 3 &  &  &  \\
+            15 & 3 &  &  &  \\
+            16 & 3 &  &  &  \\
+            17 & 3 & 4 &  &  \\
+            18 & 3 & 4 &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
+            28 & 3 & 4 &  &  \\
+            29 & 3 & 4 &  &  \\
+            30 & 3 & 4 &  &  \\
+            31 & 3 & 4 & 5 &  \\
+            32 & 3 & 4 & 5 &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            40 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
         \caption{Dimenzije cirkulantnih grafov (4. list)}
         \label{tab:cirkulantni_4}
-        \begin{tabular}{@{}ccccccccc@{}}
+        \begin{tabular}{c|cccc}
             \toprule
-            n & 3 & 4 & 5 & 6 \\
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
             \midrule
             4 &  &  &  &  \\
             5 &  &  &  &  \\
             6 & 3 &  &  &  \\
             7 & 3 &  &  &  \\
             8 & 3 &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
             14 & 3 &  &  &  \\
-            15 & 3 & 4 &  &  \\
+            15 & 3 &  &  &  \\
             16 & 3 & 4 &  &  \\
             17 & 3 & 4 &  &  \\
+            18 & 3 & 4 &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
             21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
             28 & 3 & 4 &  &  \\
             29 & 3 & 4 &  &  \\
             30 & 3 & 4 & 5 &  \\
             31 & 3 & 4 & 5 &  \\
             32 & 3 & 4 & 5 &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            40 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}    
+
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (3. list)}
+        \label{tab:cirkulantni_3_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 &  \\
+            47 & 3 & 4 & 5 &  \\
+            48 & 3 & 4 & 5 &  \\
+            49 & 3 & 4 & 5 & 6 \\
+            50 & 3 & 4 & 5 & 6 \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (4. list)}
+        \label{tab:cirkulantni_4_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
             45 & 3 & 4 & 5 &  \\
             46 & 3 & 4 & 5 &  \\
             47 & 3 & 4 & 5 &  \\
@@ -225,33 +566,143 @@ Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je 
             58 & 3 & 4 & 5 & 6 \\
             59 & 3 & 4 & 5 & 6 \\
             60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
             \bottomrule
-        \end{tabular}   
+        \end{tabular}
     \end{minipage}
-    \hfill
+\end{table}    
+
+\begin{table}[H]
+    \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \caption{Dimenzije cirkulantnih grafov (5. list)}
         \label{tab:cirkulantni_5}
-        \begin{tabular}{@{}ccccccccc@{}}
+        \begin{tabular}{c|cccc}
             \toprule
-            n & 3 & 4 & 5 & 6 \\
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
             \midrule
             4 &  &  &  &  \\
             5 & \cellcolor{red}2 &  &  &  \\
             6 & 3 &  &  &  \\
             7 & 3 &  &  &  \\
             8 & 3 &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
             14 & 3 &  &  &  \\
             15 & 3 & 4 &  &  \\
             16 & 3 & 4 &  &  \\
             17 & 3 & 4 &  &  \\
+            18 & 3 & 4 &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
             21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
             28 & 3 & 4 &  &  \\
             29 & 3 & 4 & 5 &  \\
             30 & 3 & 4 & 5 &  \\
             31 & 3 & 4 & 5 &  \\
             32 & 3 & 4 & 5 &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            40 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Dimenzije cirkulantnih grafov (6. list)}
+        \label{tab:cirkulantni_6}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            4 & 3 &  &  &  \\
+            5 & \cellcolor{red}2 &  &  &  \\
+            6 & 3 &  &  &  \\
+            7 & 3 &  &  &  \\
+            8 & 3 &  &  &  \\
+            9 & 3 &  &  &  \\
+            10 & 3 &  &  &  \\
+            11 & 3 &  &  &  \\
+            12 & 3 &  &  &  \\
+            13 & 3 &  &  &  \\
+            14 & 3 & 4 &  &  \\
+            15 & 3 & 4 &  &  \\
+            16 & 3 & 4 &  &  \\
+            17 & 3 & 4 &  &  \\
+            18 & 3 & 4 &  &  \\
+            19 & 3 & 4 &  &  \\
+            20 & 3 & 4 &  &  \\
+            21 & 3 & 4 &  &  \\
+            22 & 3 & 4 &  &  \\
+            23 & 3 & 4 &  &  \\
+            24 & 3 & 4 &  &  \\
+            25 & 3 & 4 &  &  \\
+            26 & 3 & 4 &  &  \\
+            27 & 3 & 4 &  &  \\
+            28 & 3 & 4 & 5 &  \\
+            29 & 3 & 4 & 5 &  \\
+            30 & 3 & 4 & 5 &  \\
+            31 & 3 & 4 & 5 &  \\
+            32 & 3 & 4 & 5 &  \\
+            33 & 3 & 4 & 5 &  \\
+            34 & 3 & 4 & 5 &  \\
+            35 & 3 & 4 & 5 &  \\
+            36 & 3 & 4 & 5 &  \\
+            37 & 3 & 4 & 5 &  \\
+            38 & 3 & 4 & 5 &  \\
+            39 & 3 & 4 & 5 &  \\
+            40 & 3 & 4 & 5 &  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (5. list)}
+        \label{tab:cirkulantni_5_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
             45 & 3 & 4 & 5 &  \\
             46 & 3 & 4 & 5 &  \\
             47 & 3 & 4 & 5 & 6 \\
@@ -268,14 +719,185 @@ Ne zajemata vseh vrednosti, saj so tabele v excelu precej velike. Njun namen je 
             58 & 3 & 4 & 5 & 6 \\
             59 & 3 & 4 & 5 & 6 \\
             60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
+            \bottomrule
+        \end{tabular}   
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov (6. list)}
+        \label{tab:cirkulantni_6_nad}
+        \begin{tabular}{c|cccc}
+            \toprule
+            $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+            \midrule
+            41 & 3 & 4 & 5 &  \\
+            42 & 3 & 4 & 5 &  \\
+            43 & 3 & 4 & 5 &  \\
+            44 & 3 & 4 & 5 &  \\
+            45 & 3 & 4 & 5 &  \\
+            46 & 3 & 4 & 5 & 6 \\
+            47 & 3 & 4 & 5 & 6 \\
+            48 & 3 & 4 & 5 & 6 \\
+            49 & 3 & 4 & 5 & 6 \\
+            50 & 3 & 4 & 5 & 6 \\
+            51 & 3 & 4 & 5 & 6 \\
+            52 & 3 & 4 & 5 & 6 \\
+            53 & 3 & 4 & 5 & 6 \\
+            54 & 3 & 4 & 5 & 6 \\
+            55 & 3 & 4 & 5 & 6 \\
+            56 & 3 & 4 & 5 & 6 \\
+            57 & 3 & 4 & 5 & 6 \\
+            58 & 3 & 4 & 5 & 6 \\
+            59 & 3 & 4 & 5 & 6 \\
+            60 & 3 & 4 & 5 & 6 \\
+            61 & 3 & 4 & 5 & 6 \\
+            62 & 3 & 4 & 5 & 6 \\
+            63 & 3 & 4 & 5 & 6 \\
+            64 & 3 & 4 & 5 & 6 \\
+            65 & 3 & 4 & 5 & 6 \\
+            66 & 3 & 4 & 5 & 6 \\
+            67 & 3 & 4 & 5 & 6 \\
+            68 & 3 & 4 & 5 & 6 \\
+            69 & 3 & 4 & 5 & 6 \\
+            70 & 3 & 4 & 5 & 6 \\
+            71 & 3 & 4 & 5 & 6 \\
+            72 & 3 & 4 & 5 & 6 \\
+            73 & 3 & 4 & 5 & 6 \\
+            74 & 3 & 4 & 5 & 6 \\
+            75 & 3 & 4 & 5 & 6 \\
+            76 & 3 & 4 & 5 & 6 \\
+            77 & 3 & 4 & 5 & 6 \\
             \bottomrule
         \end{tabular}
     \end{minipage}
 \end{table}    
 
-\noindent Tabela \ref{tab:cirkulantni_4} prikazuje rezultate za $f(k) = 2(k-1)^2 - 3$, medtem ko tabela \ref{tab:cirkulantni_5} prikazuje rezultate za $f(k) = 2(k-1)^2 - 4$. 
-Iz tabel opazimo, da za $f(k) = 2(k-1)^2 - 3$ enakost velja za vse preizkušene vrednosti, medtem ko za $f(k) = 2(k-1)^2 - 4$ ne velja
-za $n = 5$ in $k = 3$.
+\begin{table}[H]
+\centering
+\caption{Dimenzije cirkulantnih grafov (7. list)}
+\label{tab:cirkulantni_7}
+    \begin{tabular}{c|cccc}
+        $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+        \hline
+        4 &  &  &  &  \\
+        5 & \cellcolor{red}2 &  &  &  \\
+        6 & 3 &  &  &  \\
+        7 & 3 & \cellcolor{red}3 &  &  \\
+        8 & 3 & 4 &  &  \\
+        9 & 3 & \cellcolor{red}3 & \cellcolor{red}4 &  \\
+        10 & 3 & \cellcolor{red}3 & 5 &  \\
+        11 & 3 & 4 & \cellcolor{red}4 & \cellcolor{red}5 \\
+        12 & 3 & 4 & \cellcolor{red}3 & 6 \\
+        13 & 3 & 4 & 5 & \cellcolor{red}5 \\
+        14 & 3 & 4 & 5 & \cellcolor{red}4 \\
+        15 & 3 & 4 & 5 & \cellcolor{red}5 \\
+        16 & 3 & 4 & \cellcolor{red}4 & \cellcolor{red}5 \\
+        17 & 3 & 4 & \cellcolor{red}4 & 6 \\
+        18 & 3 & 4 & 5 & 6 \\
+        19 & 3 & 4 & 5 & \cellcolor{red}5 \\
+        20 & 3 & 4 & 5 & \cellcolor{red}4 \\
+        21 & 3 & 4 & 5 & 6 \\
+        22 & 3 & 4 & 5 & 6 \\
+        23 & 3 & 4 & 5 & 6 \\
+        24 & 3 & 4 & 5 & 6 \\
+        25 & 3 & 4 & 5 & \cellcolor{red}5 \\
+        26 & 3 & 4 & 5 & \cellcolor{red}5 \\
+        27 & 3 & 4 & 5 & 6 \\
+        28 & 3 & 4 & 5 & 6 \\
+        29 & 3 & 4 & 5 & 6 \\
+        30 & 3 & 4 & 5 & 6 \\
+        31 & 3 & 4 & 5 & 6 \\
+        32 & 3 & 4 & 5 & 6 \\
+        33 & 3 & 4 & 5 & 6 \\
+        34 & 3 & 4 & 5 & 6 \\
+        35 & 3 & 4 & 5 & 6 \\
+        36 & 3 & 4 & 5 & 6 \\
+        37 & 3 & 4 & 5 & 6 \\
+        38 & 3 & 4 & 5 & 6 \\
+        39 & 3 & 4 & 5 & 6 \\
+        
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nadaljevanje: Dimenzije cirkulantnih grafov (7. list)}
+\label{tab:cirkulantni_7_nad}
+    \begin{tabular}{c|cccc}
+        \toprule
+        $n$ & $k=3$ & $k=4$ & $k=5$ & $k=6$ \\
+        \midrule
+        40 & 3 & 4 & 5 & 6 \\
+        41 & 3 & 4 & 5 & 6 \\
+        42 & 3 & 4 & 5 & 6 \\
+        43 & 3 & 4 & 5 & 6 \\
+        44 & 3 & 4 & 5 & 6 \\
+        45 & 3 & 4 & 5 & 6 \\
+        46 & 3 & 4 & 5 & 6 \\
+        47 & 3 & 4 & 5 & 6 \\
+        48 & 3 & 4 & 5 & 6 \\
+        49 & 3 & 4 & 5 & 6 \\
+        50 & 3 & 4 & 5 & 6 \\
+        51 & 3 & 4 & 5 & 6 \\
+        52 & 3 & 4 & 5 & 6 \\
+        53 & 3 & 4 & 5 & 6 \\
+        54 & 3 & 4 & 5 & 6 \\
+        55 & 3 & 4 & 5 & 6 \\
+        56 & 3 & 4 & 5 & 6 \\
+        57 & 3 & 4 & 5 & 6 \\
+        58 & 3 & 4 & 5 & 6 \\
+        59 & 3 & 4 & 5 & 6 \\
+        60 & 3 & 4 & 5 & 6 \\
+        61 & 3 & 4 & 5 & 6 \\
+        62 & 3 & 4 & 5 & 6 \\
+        63 & 3 & 4 & 5 & 6 \\
+        64 & 3 & 4 & 5 & 6 \\
+        65 & 3 & 4 & 5 & 6 \\
+        66 & 3 & 4 & 5 & 6 \\
+        67 & 3 & 4 & 5 & 6 \\
+        68 & 3 & 4 & 5 & 6 \\
+        69 & 3 & 4 & 5 & 6 \\
+        70 & 3 & 4 & 5 & 6 \\
+        71 & 3 & 4 & 5 & 6 \\
+        72 & 3 & 4 & 5 & 6 \\
+        73 & 3 & 4 & 5 & 6 \\
+        74 & 3 & 4 & 5 & 6 \\
+        75 & 3 & 4 & 5 & 6 \\
+        76 & 3 & 4 & 5 & 6 \\
+        77 & 3 & 4 & 5 & 6 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{itemize}
+    \item Tabeli \ref{tab:cirkulantni_1} in \ref{tab:cirkulantni_1_nad} prikazujeta rezultate za $f(k) = 2(k-1)^2$. Enakost velja za vse preizkušene $n$.
+    \item Tabeli \ref{tab:cirkulantni_2} in \ref{tab:cirkulantni_2_nad} pa prikazuje rezultate za $f(k) = 2(k-1)^2 - 1$. Enakost velja za vse preizkušene $n$.
+    \item Tabeli \ref{tab:cirkulantni_3} in \ref{tab:cirkulantni_3_nad} prikazujeta rezultate za $f(k) = 2(k-1)^2 - 2$, kjer velja enakost za vse preizkušene $n$.
+    \item Tabeli \ref{tab:cirkulantni_4} in \ref{tab:cirkulantni_4_nad} prikazujeta rezultate za $f(k) = 2(k-1)^2 - 3$, kjer velja enakost za vse preizkušene $n$.
+    \item Tabeli \ref{tab:cirkulantni_5} in \ref{tab:cirkulantni_5_nad} prikazujeta rezultate za $f(k) = 2(k-1)^2 - 4$, kjer enakost ne velja za $n = 5$ in $k = 3$.
+    \item Tabeli \ref{tab:cirkulantni_6} in \ref{tab:cirkulantni_6_nad} prikazujeta rezultate za $f(k) = 2(k-1)^2 - 5$, kjer enakost ne velja za $n = 5$ in $k = 3$.
+    \item Tabeli \ref{tab:cirkulantni_7} in \ref{tab:cirkulantni_7_nad} prikazujeta rezultate za $f(k) = 2(k-1)$, kjer enakost ne velja.
+\end{itemize}
+
 
 \newpage
 \subsection*{Naloga 2}
@@ -426,46 +1048,56 @@ Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_naloga\_2.xlsx}. Spo
         \caption{Dimenzije cirkulantnih grafov m = 4 (1. list)}
         \label{tab:cirkulantni_m4}
         \scriptsize
-        \begin{tabular}{@{}ccccccccc@{}}
+        \begin{tabular}{rr}
             \toprule
-            n &  4  \\
+            $n$ & $4$ \\
             \midrule
-            7 & 3  \\
-            8 & 4 \\
-            9 & 4 \\
-            10 & 4 \\
-            11 & 5 \\
-            12 & 5 \\
-            13 & 6 \\
-            14 & 6 \\
+            7  & 3  \\
+            8  & 4  \\
+            9  & 4  \\
+            10 & 4  \\
+            11 & 5  \\
+            12 & 5  \\
+            13 & 5  \\
+            14 & 6  \\
             15 & 6  \\
-            16 & 7  \\
+            16 & 6  \\
             17 & 7  \\
-            18 & 8  \\
-            19 & 8  \\
+            18 & 7  \\
+            19 & 7  \\
             20 & 8  \\
-            21 & 9  \\
-            22 & 9  \\
-            23 & 10  \\
-            24 & 10  \\
-            25 & 10  \\
-            26 & 11  \\
-            27 & 11  \\
-            28 & 12 \\
-            29 & 12  \\
-            30 & 12  \\
-            31 & 13 \\
-            32 & 13 \\
-            33 & 14 \\
-            34 & 14 \\
-            35 & 14 \\
-            36 & 15 \\
-            37 & 15 \\
-            38 & 16 \\
-            39 & 16 \\
-            40 & 16 \\
+            21 & 8  \\
+            22 & 8  \\
+            23 & 9  \\
+            24 & 9  \\
+            25 & 9  \\
+            26 & 10 \\
+            27 & 10 \\
+            28 & 10 \\
+            29 & 11 \\
+            30 & 11 \\
+            31 & 11 \\
+            32 & 12 \\
+            33 & 12 \\
+            34 & 12 \\
+            35 & 13 \\
+            36 & 13 \\
+            37 & 13 \\
+            38 & 14 \\
+            39 & 14 \\
+            40 & 14 \\
+            41 & 15 \\
+            42 & 15 \\
+            43 & 15 \\
+            44 & 16 \\
+            45 & 16 \\
+            46 & 16 \\
+            47 & 17 \\
+            48 & 17 \\
+            49 & 17 \\
+            50 & 18 \\
             \bottomrule
-        \end{tabular}   
+        \end{tabular}                    
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\textwidth}
@@ -473,50 +1105,149 @@ Vsi rezultati so zbrani v excel datoteki \texttt{rezultati\_naloga\_2.xlsx}. Spo
         \caption{Dimenzije cirkulantnih grafov $m \in \{5, 6, 7, 8, 9, 10\}$ (2. list)}
         \label{tab:cirkulantni_m_vec}
         \scriptsize
-        \begin{tabular}{@{}ccccccccc@{}}
+        \begin{tabular}{rrrrrrr}
             \toprule
-            n & 5 & 6 & 7 & 8 & 9 & 10 \\
+            $n$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\
             \midrule
-            7 & 2 & 1 &  &  &  &  \\
-            8 & 3 & 2 & 1 &  &  &  \\
-            9 & 3 & 3 & 2 & 1 &  &  \\
-            10 & 5 & 3 & 3 & 2 & 1 &  \\
-            11 & 5 & 4 & 4 & 3 & 2 & 1 \\
-            12 & 4 & 6 & 3 & 4 & 3 & 2 \\
-            13 & 6 & 6 & 5 & 5 & 4 & 3 \\
-            14 & 6 & 6 & 7 & 4 & 5 & 4 \\
-            15 & 5 & 6 & 6 & 5 & 5 & 5 \\
-            16 & 7 & 7 & 6 & 8 & 5 & 5 \\
-            17 & 7 & 7 & 7 & 7 & 6 & 6 \\
-            18 & 6 & 7 & 7 & 6 & 9 & 5 \\
-            19 & 8 & 8 & 8 & 8 & 8 & 7 \\
-            20 & 8 & 8 & 8 & 8 & 8 & 10 \\
-            21 & 7 & 9 & 8 & 7 & 9 & 9 \\
-            22 & 9 & 8 & 9 & 9 & 9 & 8 \\
-            23 & 9 & 10 & 9 & 10 & 10 & 9 \\
-            24 & 8 & 10 & 9 & 8 & 9 & 9 \\
-            25 & 10 & 10 & 10 & 10 & 10 & 10 \\
-            26 & 10 & 10 & 10 & 11 & 11 & 11 \\
-            27 & 9 & 11 & 11 & 9 & 10 & 10 \\
-            28 & 11 & 11 & 11 & 11 & 12 & 12 \\
-            29 & 11 & 11 & 11 & 12 & 12 & 12 \\
-            30 & 10 & 12 & 12 & 10 & 12 & 11 \\
-            31 & 12 & 12 & 12 & 13 & 12 & 13 \\
-            32 & 12 & 13 & 12 & 13 & 13 & 12 \\
-            33 & 11 & 12 & 13 & 11 & 14 & 12 \\
-            34 & 13 & 14 & 13 & 14 & 12 & 13 \\
-            35 & 13 & 14 & 14 & 14 & 14 & 13 \\
-            36 & 12 & 14 & 14 & 12 & 14 & 14 \\
-            37 & 14 & 14 & 14 & 15 & 14 & 15 \\
-            38 & 14 & 15 & 15 & 15 & 15 & 14 \\
-            39 & 13 & 15 & 15 & 13 & 15 & 16 \\
-            40 & 15 & 15 & 15 & 16 & 16 & 15 \\
+            7  & 2  & 1  &     &     &     &     \\
+            8  & 3  & 2  & 1   &     &     &     \\
+            9  & 3  & 3  & 2   & 1   &     &     \\
+            10 & 5  & 3  & 3   & 2   & 1   &     \\
+            11 & 5  & 4  & 4   & 3   & 2   & 1   \\
+            12 & 6  & 5  & 4   & 4   & 3   & 2   \\
+            13 & 7  & 5  & 5   & 4   & 4   & 3   \\
+            14 & 7  & 6  & 5   & 5   & 4   & 4   \\
+            15 & 8  & 7  & 6   & 5   & 5   & 4   \\
+            16 & 9  & 7  & 7   & 6   & 5   & 5   \\
+            17 & 9  & 8  & 7   & 7   & 6   & 5   \\
+            18 & 10 & 9  & 8   & 7   & 7   & 6   \\
+            19 & 11 & 9  & 9   & 8   & 7   & 7   \\
+            20 & 11 & 10 & 9   & 9   & 8   & 7   \\
+            21 & 12 & 11 & 10  & 9   & 9   & 8   \\
+            22 & 13 & 11 & 11  & 10  & 9   & 9   \\
+            23 & 13 & 12 & 11  & 11  & 10  & 9   \\
+            24 & 14 & 13 & 12  & 11  & 11  & 10  \\
+            25 & 15 & 13 & 13  & 12  & 11  & 11  \\
+            26 & 15 & 14 & 13  & 13  & 12  & 11  \\
+            27 & 16 & 15 & 14  & 13  & 13  & 12  \\
+            28 & 17 & 15 & 15  & 14  & 13  & 13  \\
+            29 & 17 & 16 & 15  & 15  & 14  & 13  \\
+            30 & 18 & 17 & 16  & 15  & 15  & 14  \\
+            31 & 19 & 17 & 17  & 16  & 15  & 15  \\
+            32 & 19 & 18 & 17  & 17  & 16  & 15  \\
+            33 & 20 & 19 & 18  & 17  & 17  & 16  \\
+            34 & 21 & 19 & 19  & 18  & 17  & 17  \\
+            35 & 21 & 20 & 19  & 19  & 18  & 17  \\
+            36 & 22 & 21 & 20  & 19  & 19  & 18  \\
+            37 & 23 & 21 & 21  & 20  & 19  & 19  \\
+            38 & 23 & 22 & 21  & 21  & 20  & 19  \\
+            39 & 24 & 23 & 22  & 21  & 21  & 20  \\
+            40 & 25 & 23 & 23  & 22  & 21  & 21  \\
+            41 & 25 & 24 & 23  & 23  & 22  & 21  \\
+            42 & 26 & 25 & 24  & 23  & 23  & 22  \\
+            43 & 27 & 25 & 25  & 24  & 23  & 23  \\
+            44 & 27 & 26 & 25  & 25  & 24  & 23  \\
+            45 & 28 & 27 & 26  & 25  & 25  & 24  \\
+            46 & 29 & 27 & 27  & 26  & 25  & 25  \\
+            47 & 29 & 28 & 27  & 27  & 26  & 25  \\
+            48 & 30 & 29 & 28  & 27  & 27  & 26  \\
+            49 & 31 & 29 & 29  & 28  & 27  & 27  \\
+            50 & 31 & 30 & 29  & 29  & 28  & 27  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}  
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov m = 4 (1. list)}
+        \label{tab:cirkulantni_m4_nad}
+        \scriptsize
+        \begin{tabular}{rr}
+            \toprule
+            $n$ & $4$ \\
+            \midrule
+            51 & 18 \\
+            52 & 18 \\
+            53 & 19 \\
+            54 & 19 \\
+            55 & 19 \\
+            56 & 20 \\
+            57 & 20 \\
+            58 & 20 \\
+            59 & 21 \\
+            60 & 21 \\
+            61 & 21 \\
+            62 & 22 \\
+            63 & 22 \\
+            64 & 22 \\
+            65 & 23 \\
+            66 & 23 \\
+            67 & 23 \\
+            68 & 24 \\
+            69 & 24 \\
+            70 & 24 \\
+            71 & 25 \\
+            72 & 25 \\
+            73 & 25 \\
+            74 & 26 \\
+            75 & 26 \\
+            76 & 26 \\
+            77 & 27 \\
+            78 & 27 \\
+            79 & 27 \\
+            80 & 28 \\
+            \bottomrule
+        \end{tabular}                    
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Nadaljevanje: Dimenzije cirkulantnih grafov $m \in \{5, 6, 7, 8, 9, 10\}$ (2. list)}
+        \label{tab:cirkulantni_m_vec_nad}
+        \scriptsize
+        \begin{tabular}{rrrrrrr}
+            \toprule
+            $n$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\
+            \midrule
+            51 & 32 & 31 & 30  & 29  & 29  & 28  \\
+            52 & 33 & 31 & 31  & 30  & 29  & 29  \\
+            53 & 33 & 32 & 31  & 31  & 30  & 29  \\
+            54 & 34 & 33 & 32  & 31  & 31  & 30  \\
+            55 & 35 & 33 & 33  & 32  & 31  & 31  \\
+            56 & 35 & 34 & 33  & 33  & 32  & 31  \\
+            57 & 36 & 35 & 34  & 33  & 33  & 32  \\
+            58 & 37 & 35 & 35  & 34  & 33  & 33  \\
+            59 & 37 & 36 & 35  & 35  & 34  & 33  \\
+            60 & 38 & 37 & 36  & 35  & 35  & 34  \\
+            61 & 39 & 37 & 37  & 36  & 35  & 35  \\
+            62 & 39 & 38 & 37  & 37  & 36  & 35  \\
+            63 & 40 & 39 & 38  & 37  & 37  & 36  \\
+            64 & 41 & 39 & 39  & 38  & 37  & 37  \\
+            65 & 41 & 40 & 39  & 39  & 38  & 37  \\
+            66 & 42 & 41 & 40  & 39  & 39  & 38  \\
+            67 & 43 & 41 & 41  & 40  & 39  & 39  \\
+            68 & 43 & 42 & 41  & 41  & 40  & 39  \\
+            69 & 44 & 43 & 42  & 41  & 41  & 40  \\
+            70 & 45 & 43 & 43  & 42  & 41  & 41  \\
+            71 & 45 & 44 & 43  & 43  & 42  & 41  \\
+            72 & 46 & 45 & 44  & 43  & 43  & 42  \\
+            73 & 47 & 45 & 45  & 44  & 43  & 43  \\
+            74 & 47 & 46 & 45  & 45  & 44  & 43  \\
+            75 & 48 & 47 & 46  & 45  & 45  & 44  \\
+            76 & 49 & 47 & 47  & 46  & 45  & 45  \\
+            77 & 49 & 48 & 47  & 47  & 46  & 45  \\
+            78 & 50 & 49 & 48  & 47  & 47  & 46  \\
+            79 & 51 & 49 & 49  & 48  & 47  & 47  \\
+            80 & 51 & 50 & 49  & 49  & 48  & 48  \\
             \bottomrule
         \end{tabular}
     \end{minipage}
 \end{table}   
 
-\noindent Tabela \ref{tab:cirkulantni_m4} prikazuje rezultate za $m = 4$, medtem ko tabela \ref{tab:cirkulantni_m_vec} prikazuje rezultate za $m \in \{5, 6, 7, 8, 9, 10\}$. 
+\noindent Tabeli \ref{tab:cirkulantni_m4} in \ref{tab:cirkulantni_m4_nad} prikazujeta rezultate za $m = 4$, medtem ko tabeli \ref{tab:cirkulantni_m_vec} in \ref{tab:cirkulantni_m_vec_nad} prikazujeta rezultate za $m \in \{5, 6, 7, 8, 9, 10\}$. 
 Iz tabel opazimo, da za $m = 4$ enakost velja za vse preizkušene vrednosti. Za ostale $m$ je težje določiti pravilo.
 
 
